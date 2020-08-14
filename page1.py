@@ -49,10 +49,20 @@ class Sisia(unittest.TestCase):
             pdf1= str(fe.readData(path,"Hoja3",r,20))
             pdf2= str(fe.readData(path,"Hoja3",r,21))
             pdf3= str(fe.readData(path,"Hoja3",r,22))
+            '''
+            Seccion Personal
             nom= str(fe.readData(path,"Hoja3",r,23))
             ap= str(fe.readData(path,"Hoja3",r,24))
             am= str(fe.readData(path,"Hoja3",r,25))
+            email= str(fe.readData(path,"Hoja3",r,26))
+            puesto= str(fe.readData(path,"Hoja3",r,27))
+            '''
 
+            #instalacion
+            instalacion = str(fe.readData(path, "Hoja3", r, 23))
+            descripcion = str(fe.readData(path, "Hoja3", r, 24))
+            calle = str(fe.readData(path, "Hoja3", r, 25))
+            colonia = str(fe.readData(path, "Hoja3", r, 26))
 
 
 
@@ -85,6 +95,7 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
 
             #Sección personal
+            '''
             f.Click("(//a[@data-toggle='tab'])[2]")
             f.tiempo(1)
             f.scrolling(300)
@@ -93,13 +104,24 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'materno')]",am)
             f.texto("(//input[contains(@formcontrolname,'rfc')])[1]",rfc)
             f.texto("//input[contains(@formcontrolname,'curp')]",curp)
-            f.tiempo(2)
+            f.texto("//input[contains(@formcontrolname,'correo')]",email)
+            f.texto("(//input[@formcontrolname='telefono'])[1]",telefono)
+            f.combo_texto("//select[@formcontrolname='puesto']",puesto)
+            f.scrolling(650)
+            f.tiempo(3)
+            '''
+            #instalacion
+            f.Click("(//a[contains(@data-toggle,'tab')])[3]")
+            f.tiempo(1)
+            f.scrolling(300)
+            f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]",instalacion)
+            #falta responsable
+            f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[1]",descripcion)
+            f.texto("//input[contains(@formcontrolname,'calle')]",calle)
+            f.texto("//input[contains(@formcontrolname,'colonia')]",colonia)
 
 
 
-
-
-            f.tiempo(4)
 
 
 
