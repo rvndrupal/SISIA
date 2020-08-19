@@ -74,6 +74,11 @@ class Funciones():
         v = wait.until(EC.visibility_of_element_located((By.ID,id)))
         return v
 
+    def Validar_avilitado_xpat(self,xpath):
+        e=self.driver.find_element_by_xpath(xpath)
+        re=str(e.is_enabled())
+        return re
+
     def scrolling(self, y):
         s = self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(y) + ")")
         return s
