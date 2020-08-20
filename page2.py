@@ -43,7 +43,7 @@ class Sisia(unittest.TestCase):
             ind3 = fe.readData(path, "Hoja4", r, 3)
             presu = fe.readData(path, "Hoja4", r, 4)
 
-            f.combo_index("//select[@id='proyectoCampana']",ind3)
+            f.combo_index("//select[@id='proyectoCampana']",1)
             f.combo_index("//select[@formcontrolname='presupuestoRadio']",presu)
 
 
@@ -77,7 +77,11 @@ class Sisia(unittest.TestCase):
 
 
             #poblacion,estatus
+
             ind6 = fe.readData(path, "Hoja4", r, 7)
+            '''
+            pob = fe.readData(path, "Hoja4", r, 8)
+
             f.scrolling(-1400)
             f.tiempo(1)
             f.Click("//a[contains(.,'Población, Estatus Fitozoosanitario y Localización de Acciones Programadas')]")
@@ -86,7 +90,97 @@ class Sisia(unittest.TestCase):
             f.tiempo(.7)
             f.combo_index("//select[contains(@title,'Unidad de medida')]",ind3)
             f.combo_index("(//select[@formcontrolname='cultivoEspecie'])[1]",ind6)
+            f.texto("//input[contains(@formcontrolname,'poblacionPotencial')]",fecha2)
+            f.texto("//input[@formcontrolname='poblacionObjetivo']",pob)
+            f.texto("//textarea[contains(@formcontrolname,'estatusSanitario')]",tg)
+            f.Click("(//button[contains(.,'Agregar')])[1]")
+            f.tiempo(1)
+            f.Click("//button[contains(.,'Entendido')]")
+            f.scrolling(300)
+            f.tiempo(2)
+            #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[2]")
+            '''
 
+            #Estrategias
+
+            et = fe.readData(path, "Hoja4", r, 9)
+            vp = fe.readData(path, "Hoja4", r, 10)
+            '''
+            f.scrolling(-1400)
+            f.tiempo(1)
+            f.Click("//a[@data-toggle='tab'][contains(.,'Estrategias e Impactos Sanitarios')]")
+            f.tiempo(1)
+            f.scrolling(180)
+            f.texto("//textarea[contains(@formcontrolname,'estatusActPlagas')]",et)
+            f.texto("//textarea[@formcontrolname='estrategias']",et)
+            f.combo_index("(//select[contains(@formcontrolname,'municipio')])[2]",ind6)
+            f.combo_index("//select[@formcontrolname='destinoProduccion']",ind3)
+            f.texto("//input[contains(@formcontrolname,'superficie')]",fecha2)
+            f.texto("//input[@formcontrolname='nProductores']",pob)
+            f.combo_index("(//select[contains(@formcontrolname,'cultivoEspecie')])[2]",ind6)
+            f.combo_index("(//select[@formcontrolname='unidadMedida'])[2]",ind3)
+            f.texto("//input[@formcontrolname='volTotalProduccion']",pob)
+            f.texto("//input[@formcontrolname='valTotalProduccion']",vp)
+            f.texto("//input[@formcontrolname='productoresEntidad']",fecha2)
+            f.texto("//input[contains(@ng-reflect-name,'unidadesAtenderCoberturaFitosa')]",pob)
+            f.texto("//input[@formcontrolname='productoresAtender']",vp)
+            f.combo_index("//select[@formcontrolname='plagasEnfermedadesCultivoEspecie']",ind6)
+            f.Click("(//button[contains(@class,'btn btn-primary btn-block btn-sm')])[2]")
+            f.tiempo(1)
+            f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+            f.tiempo(1)
+            f.scrolling(300)
+            f.tiempo(2)
+            #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[3]")
+            '''
+
+
+            #Calendarización
+            mes1 = fe.readData(path, "Hoja4", r, 11)
+            mes2 = fe.readData(path, "Hoja4", r, 12)
+            mes3 = fe.readData(path, "Hoja4", r, 13)
+            '''
+            f.scrolling(-1400)
+            f.tiempo(1)
+            f.Click("//a[@data-toggle='tab'][contains(.,'Calendarización de Actividades y Responsabilidades por Proyecto')]")
+            f.tiempo(3)
+            f.scrolling(180)
+            f.combo_index("(//select[contains(@formcontrolname,'accion')])[1]",ind6)
+            f.tiempo(1)
+            f.combo_index("(//select[@formcontrolname='actividad'])[1]",1)
+            f.combo_index("(//select[contains(@formcontrolname,'unidadMedida')])[3]",1)
+            f.combo_index("//select[@formcontrolname='responsableActividad']",ind3)
+            f.texto("//input[@id='"+str(mes1)+"']",mes2)
+            f.texto("//input[@id='"+str(mes2)+"']",vp)
+            f.texto("//input[@id='"+str(mes3)+"']",mes1)
+            f.tiempo(1)
+            f.scrolling(100)
+            f.Click("//button[contains(.,'Agregar Distribución')]")
+            f.tiempo(1)
+            f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+            f.tiempo(1)
+            f.scrolling(200)
+            #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[4]")
+            f.tiempo(2)
+            '''
+
+
+            #Necesidades Físicas
+            f.scrolling(-1400)
+            f.tiempo(1)
+            f.Click("//a[@data-toggle='tab'][contains(.,'Necesidades Físicas Financieras')]")
+            f.tiempo(2)
+            f.scrolling(200)
+            f.combo_index("(//select[@formcontrolname='persona'])[1]",1)
+            f.combo_index("//select[@formcontrolname='meses']",mes1)
+            f.texto("//input[contains(@formcontrolname,'costoTotal')]",1)
+            f.scrolling(100)
+            f.tiempo(1)
+            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+            f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+            f.tiempo(1)
+            f.scrolling(350)
+            f.tiempo(3)
 
 
 

@@ -20,7 +20,7 @@ class Sisia(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
-        cls.driver.implicitly_wait(30)
+        cls.driver.implicitly_wait(35)
         cls.driver.maximize_window()
 
 
@@ -33,7 +33,7 @@ class Sisia(unittest.TestCase):
         path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
-        for r in range(34, rows + 1):
+        for r in range(50, rows + 1):
             user = fe.readData(path, "Hoja3", r, 1)
             passw = fe.readData(path, "Hoja3", r, 9)
             mision= fe.readData(path, "Hoja3", r, 10)
@@ -90,6 +90,7 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             f.Click("//a[@href='/recursos-humanos-materiales']")
             f.scrolling(100)
+
             #DATOS IE
 
             f.texto("//textarea[@formcontrolname='mision']", mision)
@@ -114,11 +115,12 @@ class Sisia(unittest.TestCase):
 
 
 
+
             #Sección personal
             '''
-            f.tiempo(4)
+            f.tiempo(10)
             f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
-            f.tiempo(4)
+            f.tiempo(8)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]",nom)
             f.texto("//input[@formcontrolname='paterno']",ap)
@@ -148,11 +150,12 @@ class Sisia(unittest.TestCase):
             f.scrolling(150)
             f.tiempo(1)
             f.Click("//a[@data-toggle='tab'][contains(.,'Instalaciones')]")
-            f.tiempo(5)
+            f.tiempo(8)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]",instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]",1)
             f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[1]",descripcion)
+            f.tiempo(3)
             f.texto("//input[contains(@formcontrolname,'calle')]",calle)
             f.texto("//input[contains(@formcontrolname,'colonia')]",colonia)
             f.texto("//input[@formcontrolname='cp']",cp)
@@ -191,7 +194,7 @@ class Sisia(unittest.TestCase):
 
             f.scrolling(100)
             f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
-            f.tiempo(4)
+            f.tiempo(8)
             f.texto("(//select[contains(@formcontrolname,'anioRegistro')])[1]",ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]",ni)
             f.combo_index("//select[contains(@formcontrolname,'tipoVehiculo')]",tv)
@@ -215,13 +218,13 @@ class Sisia(unittest.TestCase):
             f.scrolling(200)
             f.tiempo(2)
             f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[2]")
-            f.tiempo(5)
+            f.tiempo(7)
 
 
 
             #Bien ó Servicio
             f.Click("//a[@data-toggle='tab'][contains(.,'Bien o Servicio')]")
-            f.tiempo(4)
+            f.tiempo(8)
             f.scrolling(120)
             f.combo_index("(//select[contains(@formcontrolname,'anioRegistro')])[3]",1)
             f.combo_index("//select[contains(@formcontrolname,'tipoBien')]",tv)
@@ -253,23 +256,6 @@ class Sisia(unittest.TestCase):
 
 
 
-    def test_dos(self):
-        driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
-        f = Funciones(driver)
-        fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
-        hoja = "Hoja4"
-        rows = fe.getRowCount(path, hoja)
-        for r in range(40, rows + 1):
-            user = fe.readData(path, "Hoja3", r, 1)
-            passw = fe.readData(path, "Hoja3", r, 9)
-            f.texto("//input[contains(@id,'username')]", user)
-            f.texto("//input[contains(@id,'password')]", passw)
-            f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
-            f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.scrolling(100)
 
 
 

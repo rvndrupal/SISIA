@@ -4,8 +4,8 @@
     <list default="true" id="d27eba2f-35db-4751-955d-1dcbedd2afff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentacion/Usuariosv3.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentacion/Usuariosv3.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page1.py" beforeDir="false" afterPath="$PROJECT_DIR$/page1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page2.py" beforeDir="false" afterPath="$PROJECT_DIR$/page2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,9 +98,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.pytest for page2.Sisia.test_dos" />
-        <item itemvalue="Python tests.pytest for page2.Sisia" />
         <item itemvalue="Python tests.pytest for page1.Sisia.test_login" />
         <item itemvalue="Python tests.pytest for page1.Sisia" />
+        <item itemvalue="Python tests.pytest for page2.Sisia" />
       </list>
     </recent_temporary>
   </component>
@@ -118,21 +118,25 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1259" height="263" key="GridCell.Tab.0.bottom" timestamp="1597942291042">
+    <state width="1259" height="267" key="GridCell.Tab.0.bottom" timestamp="1597950602007">
       <screen x="1920" y="48" width="1280" height="984" />
     </state>
-    <state width="1259" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597942291042" />
-    <state width="1259" height="263" key="GridCell.Tab.0.center" timestamp="1597942291042">
+    <state width="1515" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887398" />
+    <state width="1259" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597950602007" />
+    <state width="1259" height="267" key="GridCell.Tab.0.center" timestamp="1597950602007">
       <screen x="1920" y="48" width="1280" height="984" />
     </state>
-    <state width="1259" height="263" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597942291042" />
-    <state width="1259" height="263" key="GridCell.Tab.0.left" timestamp="1597942291042">
+    <state width="1515" height="263" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
+    <state width="1259" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597950602007" />
+    <state width="1259" height="267" key="GridCell.Tab.0.left" timestamp="1597950602007">
       <screen x="1920" y="48" width="1280" height="984" />
     </state>
-    <state width="1259" height="263" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597942291042" />
-    <state width="1259" height="263" key="GridCell.Tab.0.right" timestamp="1597942291042">
+    <state width="1515" height="263" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
+    <state width="1259" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597950602007" />
+    <state width="1259" height="267" key="GridCell.Tab.0.right" timestamp="1597950602007">
       <screen x="1920" y="48" width="1280" height="984" />
     </state>
-    <state width="1259" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597942291042" />
+    <state width="1515" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
+    <state width="1259" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597950602007" />
   </component>
 </project>
