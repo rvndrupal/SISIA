@@ -76,10 +76,10 @@ class Sisia(unittest.TestCase):
             #falta guardar
 
 
-            #poblacion,estatus
 
+            #poblacion,estatus
             ind6 = fe.readData(path, "Hoja4", r, 7)
-            '''
+
             pob = fe.readData(path, "Hoja4", r, 8)
 
             f.scrolling(-1400)
@@ -99,13 +99,13 @@ class Sisia(unittest.TestCase):
             f.scrolling(300)
             f.tiempo(2)
             #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[2]")
-            '''
+
 
             #Estrategias
 
             et = fe.readData(path, "Hoja4", r, 9)
             vp = fe.readData(path, "Hoja4", r, 10)
-            '''
+
             f.scrolling(-1400)
             f.tiempo(1)
             f.Click("//a[@data-toggle='tab'][contains(.,'Estrategias e Impactos Sanitarios')]")
@@ -132,14 +132,14 @@ class Sisia(unittest.TestCase):
             f.scrolling(300)
             f.tiempo(2)
             #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[3]")
-            '''
+
 
 
             #Calendarización
             mes1 = fe.readData(path, "Hoja4", r, 11)
             mes2 = fe.readData(path, "Hoja4", r, 12)
             mes3 = fe.readData(path, "Hoja4", r, 13)
-            '''
+
             f.scrolling(-1400)
             f.tiempo(1)
             f.Click("//a[@data-toggle='tab'][contains(.,'Calendarización de Actividades y Responsabilidades por Proyecto')]")
@@ -162,10 +162,11 @@ class Sisia(unittest.TestCase):
             f.scrolling(200)
             #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[4]")
             f.tiempo(2)
-            '''
+
 
 
             #Necesidades Físicas
+
             f.scrolling(-1400)
             f.tiempo(1)
             f.Click("//a[@data-toggle='tab'][contains(.,'Necesidades Físicas Financieras')]")
@@ -180,21 +181,66 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
             f.tiempo(1)
             f.scrolling(350)
-            f.tiempo(3)
+            f.tiempo(1)
+            #Recursos Materiales
+            f.combo_index("(//select[contains(@formcontrolname,'concepto')])[1]",ind6)
+            f.combo_index("(//select[@formcontrolname='unidadMedida'])[4]",1)
+            f.texto("(//input[contains(@formcontrolname,'cantidad')])[1]",5)
+            f.texto("(//input[@formcontrolname='costoUnitario'])[1]",2)
+            f.texto("//input[@formcontrolname='inversionGOF']",5)
+            f.texto("//input[@formcontrolname='inversionGTP']",5)
+            f.Click("(//button[contains(.,'Agregar')])[3]")
+            f.tiempo(1)
+            f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+            f.tiempo(1)
+            #Agregar Pendiente
+
+            #Servicios
+            f.scrolling(400)
+            f.combo_index("(//select[contains(@formcontrolname,'concepto')])[2]",ind6)
+            f.combo_index("(//select[contains(@formcontrolname,'unidadMedida')])[5]",1)
+            f.texto("(//input[@formcontrolname='cantidad'])[2]",mes1)
+            f.texto("(//input[@formcontrolname='costoUnitario'])[2]",mes2)
+            f.tiempo(1)
+            f.scrolling(50)
+            f.Click("//*[@id='tab-05']/div/app-necesidades-fisicas-servicios/div/fieldset/div[7]/div/div[2]/div/button")
+            f.tiempo(1)
+            f.Click("//button[contains(.,'Entendido')]")
+            f.tiempo(1)
+            f.scrolling(400)
+            #f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+            f.tiempo(1)
 
 
 
 
 
-
+            #Indicaciones por Acciones
+            f.scrolling(-1800)
+            f.tiempo(2)
+            f.Click("//a[contains(.,'Indicadores por Acciones')]")
+            f.tiempo(2)
+            f.scrolling(450)
+            f.combo_index("(//select[contains(@formcontrolname,'accion')])[2]",ind6)
+            f.tiempo(1)
+            f.combo_index("(//select[contains(@ng-reflect-name,'actividad')])[2]",1)
+            f.combo_index("(//select[@ng-reflect-name='unidadMedida'])[6]",1)
+            f.tiempo(2)
+            f.Click("//*[@id='tab-07']/div/app-indicadores-por-acciones/form/fieldset/div[6]/div/button")
+            f.tiempo(1)
+            f.Click("//button[contains(.,'Entendido')]")
+            f.scrolling(200)
+            f.tiempo(1)
+            #f.Click("(//button[contains(.,'Guardar')])[7]")
+            f.tiempo(2)
 
 
 
             #SALIR
-            '''
+            f.scrolling(-1800)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
-            '''
+
 
 
 
