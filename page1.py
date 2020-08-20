@@ -26,7 +26,6 @@ class Sisia(unittest.TestCase):
 
     
     def test_login(self):
-        ti = .1
         driver=self.driver
         driver.get("http://10.16.3.29:8004/login")
         f=Funciones(driver)
@@ -251,6 +250,26 @@ class Sisia(unittest.TestCase):
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
             '''
+
+
+
+    def test_dos(self):
+        driver = self.driver
+        driver.get("http://10.16.3.29:8004/login")
+        f = Funciones(driver)
+        fe = Funexcel(driver)
+        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        hoja = "Hoja4"
+        rows = fe.getRowCount(path, hoja)
+        for r in range(40, rows + 1):
+            user = fe.readData(path, "Hoja3", r, 1)
+            passw = fe.readData(path, "Hoja3", r, 9)
+            f.texto("//input[contains(@id,'username')]", user)
+            f.texto("//input[contains(@id,'password')]", passw)
+            f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
+            f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.scrolling(100)
 
 
 
