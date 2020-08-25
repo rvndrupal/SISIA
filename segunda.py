@@ -166,7 +166,6 @@ class Sisia(unittest.TestCase):
 
 
             #Necesidades Físicas
-
             f.scrolling(-1400)
             f.tiempo(1)
             f.Click("//a[@data-toggle='tab'][contains(.,'Necesidades Físicas Financieras')]")

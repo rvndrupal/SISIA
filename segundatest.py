@@ -13,7 +13,7 @@ from datetime import timedelta
 import string
 from selenium.common.exceptions import NoSuchElementException
 
-ren = 4
+ren = 13
 
 
 class Sisia(unittest.TestCase):
@@ -311,6 +311,228 @@ class Sisia(unittest.TestCase):
                 f.tiempo(2)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(2)
+
+
+
+
+
+    def test_necesidades(self):
+        driver = self.driver
+        driver.get("http://10.16.3.29:8004/login")
+        f = Funciones(driver)
+        fe = Funexcel(driver)
+        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        hoja = "Hoja4"
+        rows = fe.getRowCount(path, hoja)
+        for r in range(ren, rows + 1):
+            user = fe.readData(path, "Hoja4", r, 1)
+            passw = fe.readData(path, "Hoja4", r, 2)
+            mes1 = fe.readData(path, "Hoja4", r, 11)
+            mes2 = fe.readData(path, "Hoja4", r, 12)
+            ind3 = fe.readData(path, "Hoja4", r, 3)
+            presu = fe.readData(path, "Hoja4", r, 4)
+
+            f.texto("//input[contains(@id,'username')]", user)
+            f.texto("//input[contains(@id,'password')]", passw)
+            f.scrolling(50)
+            f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            f.Click("//a[@href='/administracion-planeacion']")
+            f.tiempo(1)
+
+            #if registro
+            v = f.existe_try("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
+            print(v)
+            if (v == "Existe"):
+                f.Click("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
+                f.scrolling(100)
+                f.tiempo(3)
+            elif (v == "Falso"):
+                f.Click("//a[contains(.,'Registro de Programa')]")
+                f.scrolling(100)
+                f.tiempo(3)
+                f.combo_index("//select[@id='proyectoCampana']", 2)
+                f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
+                f.scrolling(270)
+                f.tiempo(2)
+
+
+            # Necesidades Físicas
+            f.Click("//a[@data-toggle='tab'][contains(.,'Necesidades Físicas Financieras')]")
+            f.tiempo(4)
+            f.scrolling(200)
+            f.combo_index("(//select[@formcontrolname='persona'])[1]", 1)
+            f.combo_index("//select[@formcontrolname='meses']", mes1)
+            f.texto("//input[contains(@formcontrolname,'costoTotal')]", 10)
+            v=f.existe_try("//input[contains(@formcontrolname,'inversionGOF')]")
+            if(v== "Existe"):
+                f.texto("//input[contains(@formcontrolname,'inversionGOF')]",5)
+                f.texto("//input[contains(@formcontrolname,'inversionGTP')]",5)
+                f.tiempo(3)
+                f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+                f.tiempo(2)
+                f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.tiempo(4)
+                f.scrolling(250)
+                f.tiempo(3)
+            else:
+                f.tiempo(3)
+                f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+                f.tiempo(2)
+                f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.tiempo(4)
+                f.scrolling(250)
+                f.tiempo(3)
+
+
+
+            '''
+            # Recursos Materiales
+            f.combo_index("(//select[contains(@formcontrolname,'concepto')])[1]", ind3)
+            f.combo_index("(//select[@formcontrolname='unidadMedida'])[4]", 1)
+            f.texto("(//input[contains(@formcontrolname,'cantidad')])[1]", 5)
+            f.texto("(//input[@formcontrolname='costoUnitario'])[1]", 2)
+            f.tiempo(1)
+
+            v=f.existe_try("(//input[contains(@formcontrolname,'inversionGOF')])[1]")
+            if(v == "Existe"):
+                f.texto("//input[@formcontrolname='inversionGOF']", 5)
+                f.texto("//input[@formcontrolname='inversionGTP']", 5)
+                f.tiempo(2)
+                f.Click("(//button[contains(.,'Agregar')])[3]")
+                f.tiempo(1)
+                f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.tiempo(1)
+            else:
+                f.tiempo(2)
+                f.Click("(//button[contains(.,'Agregar')])[3]")
+                f.tiempo(1)
+                f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.tiempo(3)
+
+
+
+
+
+            # Servicios
+            f.scrolling(400)
+            f.combo_index("(//select[contains(@formcontrolname,'concepto')])[2]", ind3)
+            f.tiempo(5)
+            f.combo_index("(//select[contains(@formcontrolname,'unidadMedida')])[5]", 1)
+            f.texto("(//input[@formcontrolname='cantidad'])[2]", 5)
+            f.texto("(//input[@formcontrolname='costoUnitario'])[2]", 2)
+            f.tiempo(2)
+            v=f.existe_try("//input[contains(@formcontrolname,'inversionGOF')]")
+            if (v == "Existe"):
+                f.texto("//input[contains(@formcontrolname,'inversionGOF')]",5)
+                f.texto("//input[contains(@formcontrolname,'inversionGTP')]",5)
+                f.tiempo(2)
+                f.scrolling(50)
+                f.Click("(//button[contains(.,'Agregar')])[3]")
+                f.tiempo(1)
+                f.Click("//button[contains(.,'Entendido')]")
+                f.tiempo(1)
+                f.scrolling(400)
+                f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                f.tiempo(8)
+                f.scrolling(-1200)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(2)
+            else:
+                f.scrolling(50)
+                f.Click("(//button[contains(.,'Agregar')])[3]")
+                f.tiempo(1)
+                f.Click("//button[contains(.,'Entendido')]")
+                f.tiempo(1)
+                f.scrolling(400)
+                f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                f.tiempo(8)
+                f.scrolling(-1200)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(2)
+            '''
+
+    def test_acciones(self):
+        driver = self.driver
+        driver.get("http://10.16.3.29:8004/login")
+        f = Funciones(driver)
+        fe = Funexcel(driver)
+        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        hoja = "Hoja4"
+        rows = fe.getRowCount(path, hoja)
+        for r in range(ren, rows + 1):
+            user = fe.readData(path, "Hoja4", r, 1)
+            passw = fe.readData(path, "Hoja4", r, 2)
+            ind3 = fe.readData(path, "Hoja4", r, 3)
+            presu = fe.readData(path, "Hoja4", r, 4)
+
+            f.texto("//input[contains(@id,'username')]", user)
+            f.texto("//input[contains(@id,'password')]", passw)
+            f.scrolling(50)
+            f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            f.Click("//a[@href='/administracion-planeacion']")
+            f.scrolling(150)
+            f.tiempo(1)
+
+            # if registro
+            v = f.existe_try("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
+            print(v)
+            if (v == "Existe"):
+                f.Click("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
+                f.scrolling(100)
+                f.tiempo(1)
+            elif (v == "Falso"):
+                f.Click("//a[contains(.,'Registro de Programa')]")
+                f.scrolling(100)
+                f.tiempo(1)
+
+
+            f.combo_index("//select[@id='proyectoCampana']", 1)
+
+            f.tiempo(1)
+            v = f.existe_try("//span[@class='help-block'][contains(.,'Campo requerido')]")
+            if (v == "Existe"):
+                f.tiempo(1)
+                f.Click("//a[contains(.,'Salir')]")
+            else:
+                f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
+                f.scrolling(170)
+                f.tiempo(1)
+
+            f.Click("//a[contains(.,'Indicadores por Acciones')]")
+            f.tiempo(2)
+            f.scrolling(150)
+            f.combo_index("(//select[contains(@formcontrolname,'accion')])[2]", 1)
+            f.tiempo(1)
+            f.combo_index("(//select[contains(@ng-reflect-name,'actividad')])[2]", 1)
+            f.combo_index("(//select[@ng-reflect-name='unidadMedida'])[6]", 1)
+            f.tiempo(2)
+            f.Click("//*[@id='tab-07']/div/app-indicadores-por-acciones/form/fieldset/div[6]/div/button")
+            e = f.existe_try("//button[contains(.,'Entendido')]")
+            if (e == "Existe"):
+                print("EXISTE LA VENTANA")
+                f.tiempo(1)
+                f.Click("//button[contains(.,'Entendido')]")
+                f.scrolling(30)
+                f.tiempo(1)
+                f.Click("(//button[contains(.,'Guardar')])[7]")
+                f.tiempo(8)
+                f.scrolling(-1200)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(2)
+            elif(e=="Falso"):
+                print("NO EXISTE LA VENTANA")
+                f.scrolling(30)
+                f.tiempo(1)
+                f.Click("(//button[contains(.,'Guardar')])[7]")
+                f.tiempo(8)
+                f.scrolling(-1200)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(2)
+
+
+
+
+
 
 
 

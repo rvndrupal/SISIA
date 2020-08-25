@@ -82,8 +82,11 @@ class Funciones():
         val = self.driver.find_element_by_xpath(xpath).value
         return val
 
-    def tab(self,xpath):
+    def tab_enter(self,xpath):
         self.driver.find_element_by_xpath(xpath).send_keys(Keys.TAB+Keys.ENTER)
+
+    def tab(self, xpath):
+        self.driver.find_element_by_xpath(xpath).send_keys(Keys.TAB)
 
     def existe(self,xpath):
         isEnabled= self.driver.find_element_by_xpath(xpath)
