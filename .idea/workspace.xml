@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d27eba2f-35db-4751-955d-1dcbedd2afff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page2.py" beforeDir="false" afterPath="$PROJECT_DIR$/page2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page1.py" beforeDir="false" afterPath="$PROJECT_DIR$/page1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +30,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python tests.pytest for page2.Sisia.test_dos">
-    <configuration name="pytest for page1.Sisia" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.pytest for segundatest.Sisia.test_calendarizacion">
+    <configuration name="pytest for segunda.Sisia.test_dos" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,11 +47,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page1.Sisia&quot;" />
+      <option name="_new_target" value="&quot;segunda.Sisia.test_dos&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page1.Sisia.test_login" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for segundatest.Sisia.test_calendarizacion" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -59,11 +62,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page1.Sisia.test_login&quot;" />
+      <option name="_new_target" value="&quot;segundatest.Sisia.test_calendarizacion&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page2.Sisia" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for segundatest.Sisia.test_estrategias" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,11 +77,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page2.Sisia&quot;" />
+      <option name="_new_target" value="&quot;segundatest.Sisia.test_estrategias&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page2.Sisia.test_dos" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for segundatest.Sisia.test_generales" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -89,16 +92,32 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page2.Sisia.test_dos&quot;" />
+      <option name="_new_target" value="&quot;segundatest.Sisia.test_generales&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for segundatest.Sisia.test_poblacion" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="SISIA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;segundatest.Sisia.test_poblacion&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for page2.Sisia.test_dos" />
-        <item itemvalue="Python tests.pytest for page1.Sisia.test_login" />
-        <item itemvalue="Python tests.pytest for page1.Sisia" />
-        <item itemvalue="Python tests.pytest for page2.Sisia" />
+        <item itemvalue="Python tests.pytest for segundatest.Sisia.test_calendarizacion" />
+        <item itemvalue="Python tests.pytest for segundatest.Sisia.test_estrategias" />
+        <item itemvalue="Python tests.pytest for segundatest.Sisia.test_poblacion" />
+        <item itemvalue="Python tests.pytest for segundatest.Sisia.test_generales" />
+        <item itemvalue="Python tests.pytest for segunda.Sisia.test_dos" />
       </list>
     </recent_temporary>
   </component>
@@ -116,25 +135,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1259" height="267" key="GridCell.Tab.0.bottom" timestamp="1597963115613">
-      <screen x="1920" y="48" width="1280" height="984" />
+    <state width="1899" height="267" key="GridCell.Tab.0.bottom" timestamp="1598316058391">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1899" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598316058391" />
     <state width="1515" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887398" />
-    <state width="1259" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597963115613" />
-    <state width="1259" height="267" key="GridCell.Tab.0.center" timestamp="1597963115613">
-      <screen x="1920" y="48" width="1280" height="984" />
+    <state width="1259" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
+    <state width="1515" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598069872190" />
+    <state width="1899" height="267" key="GridCell.Tab.0.center" timestamp="1598316058391">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1899" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598316058391" />
     <state width="1515" height="263" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
-    <state width="1259" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597963115613" />
-    <state width="1259" height="267" key="GridCell.Tab.0.left" timestamp="1597963115613">
-      <screen x="1920" y="48" width="1280" height="984" />
+    <state width="1259" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
+    <state width="1515" height="267" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598069872190" />
+    <state width="1899" height="267" key="GridCell.Tab.0.left" timestamp="1598316058391">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1899" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598316058391" />
     <state width="1515" height="263" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
-    <state width="1259" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597963115613" />
-    <state width="1259" height="267" key="GridCell.Tab.0.right" timestamp="1597963115613">
+    <state width="1259" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
+    <state width="1515" height="267" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598069872190" />
+    <state width="1899" height="267" key="GridCell.Tab.0.right" timestamp="1598316058391">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598316058391" />
+    <state width="1515" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
+    <state width="1259" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
+    <state width="1515" height="267" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598069872190" />
+    <state x="2215" y="159" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598046485264">
       <screen x="1920" y="48" width="1280" height="984" />
     </state>
-    <state width="1515" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
-    <state width="1259" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1597963115613" />
+    <state x="2215" y="159" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598046485264" />
   </component>
 </project>

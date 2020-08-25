@@ -54,8 +54,6 @@ class Sisia(unittest.TestCase):
             rfcc=rfc+rt+str(r)
             curp= str(fe.readData(path,"Hoja3",r,16))
             curpp=curp+rt+str(r)
-
-
             presidente= str(fe.readData(path,"Hoja3",r,17))
             secretario= str(fe.readData(path,"Hoja3",r,18))
             tesorero= str(fe.readData(path,"Hoja3",r,19))
