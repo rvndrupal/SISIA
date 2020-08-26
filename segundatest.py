@@ -13,8 +13,10 @@ from datetime import timedelta
 import string
 from selenium.common.exceptions import NoSuchElementException
 
-ren = 29
+ren = 1
 campana=1
+excel="C://SISIA//Documentacion//Usuariosv4.xlsx"
+casos=2
 
 
 class Sisia(unittest.TestCase):
@@ -30,7 +32,10 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
+
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -93,13 +98,17 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
+            if(r==casos):
+                break
+
 
     def test_poblacion(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -162,6 +171,9 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
+            f.tiempo(2)
+            if (r == casos):
+                break
 
 
 
@@ -170,7 +182,8 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -195,11 +208,15 @@ class Sisia(unittest.TestCase):
             print(v)
             if (v == "Existe"):
                 f.Click("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
+                f.combo_index("//select[@id='proyectoCampana']", campana)
+                f.tiempo(1)
+                f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
                 f.tiempo(3)
             elif (v == "Falso"):
                 f.Click("//a[contains(.,'Registro de Programa')]")
                 f.tiempo(3)
-                f.combo_index("//select[@id='proyectoCampana']", 2)
+                f.combo_index("//select[@id='proyectoCampana']", campana)
+                f.tiempo(1)
                 f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
                 f.tiempo(2)
                 f.scrolling(200)
@@ -223,16 +240,26 @@ class Sisia(unittest.TestCase):
             f.combo_index("//select[@formcontrolname='plagasEnfermedadesCultivoEspecie']", ind6)
             f.Click("(//button[contains(@class,'btn btn-primary btn-block btn-sm')])[2]")
             f.tiempo(1)
-            f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
-            f.tiempo(1)
-            f.scrolling(300)
-            f.tiempo(2)
-            f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[3]")
-            f.tiempo(6)
-            f.scrolling(-900)
-            f.tiempo(1)
-            f.Click("//a[contains(.,'Salir')]")
-            f.tiempo(2)
+            v=f.existe_try("(//div[contains(@class,'alert alert-warning ng-star-inserted')])[1]")
+            if(v=="Existe"):
+                #f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.tiempo(1)
+                f.scrolling(500)
+                f.tiempo(2)
+                f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[3]")
+                f.tiempo(3)
+            elif(v=="Falso"):
+                f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                f.scrolling(500)
+                f.tiempo(3)
+                f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[3]")
+                f.tiempo(6)
+                f.scrolling(-900)
+                f.tiempo(1)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(2)
+            if(r == casos):
+                break
 
 
 
@@ -241,7 +268,8 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -324,6 +352,9 @@ class Sisia(unittest.TestCase):
                 f.tiempo(2)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(2)
+                f.tiempo(2)
+            if (r == casos):
+                break
 
 
 
@@ -334,7 +365,8 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -498,6 +530,9 @@ class Sisia(unittest.TestCase):
                 f.scrolling(-1200)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(2)
+                f.tiempo(2)
+            if (r == casos):
+                break
 
 
 
@@ -507,7 +542,8 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -583,6 +619,9 @@ class Sisia(unittest.TestCase):
                 f.scrolling(-1200)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(2)
+                f.tiempo(2)
+            if(r == casos):
+                break
 
 
 
