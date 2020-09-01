@@ -125,3 +125,33 @@ class Funciones():
         val=self.driver.find_element_by_xpath(xpath)
         val.send_keys(Keys.ENTER)
         return val
+
+
+
+
+    #borrar
+    def combo_index(self, xpath, index):
+        r = random.randint(1, 1000)
+        ct = Select(self.driver.find_element_by_xpath(xpath))
+        ct.select_by_index(index)
+        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Combo_index" + str(r) + ".png")
+        return ct
+
+    def existe_try(self, xpath):
+        try:
+            self.driver.find_element_by_xpath(xpath)
+            v = "Existe"
+        except NoSuchElementException:
+            v = "Falso"
+        return v
+    #borrar
+
+    def combo_index_existe(self,xpath,index):
+        try:
+            ct = Select(self.driver.find_element_by_xpath(xpath))
+            ct.select_by_index(index)
+            v= "Existe"
+        except NoSuchElementException:
+            v = "Falso"
+        return v
+

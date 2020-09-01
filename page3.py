@@ -13,7 +13,7 @@ from datetime import timedelta
 import string
 #pytest page1.py  page2.py  page3.py  page4.py  page5.py  page6.py  -n 6
 
-ren=3
+ren=2
 
 
 class Sisia(unittest.TestCase):
@@ -22,7 +22,7 @@ class Sisia(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
-        cls.driver.implicitly_wait(15)
+        cls.driver.implicitly_wait(25)
         cls.driver.maximize_window()
 
 
@@ -95,7 +95,7 @@ class Sisia(unittest.TestCase):
             f.upload("(//input[contains(@type,'file')])[2]", pdf2)
             f.upload("(//input[contains(@type,'file')])[3]", pdf3)
             f.Click("//button[@class='btn btn-primary ng-star-inserted'][contains(.,'Guardar')]")
-            f.tiempo(20)
+            f.tiempo(25)
             f.scrolling(120)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
