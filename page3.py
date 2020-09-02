@@ -13,7 +13,9 @@ from datetime import timedelta
 import string
 #pytest page1.py  page2.py  page3.py  page4.py  page5.py  page6.py  -n 6
 
-ren=2
+ren = 1
+excel="C://SISIA//Documentacion//Usuariosv3.xlsx"
+casos=6
 
 
 class Sisia(unittest.TestCase):
@@ -35,7 +37,7 @@ class Sisia(unittest.TestCase):
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -99,14 +101,17 @@ class Sisia(unittest.TestCase):
             f.scrolling(120)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
+            if (r == casos):
+                break
 
+    #ok listo
     #@unittest.skip("Para pruebas de personas")
     def test_persona(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -125,11 +130,11 @@ class Sisia(unittest.TestCase):
             sample = 'XFTRGERDFRESCDFTYUIOPKASDR'
             rt = random.choice(sample_letters)
             rt2 = random.choice(sample)
-            r = random.randint(1, 9)
+            ra = random.randint(1, 9)
             rfc = str(fe.readData(path, "Hoja3", r, 15))
-            rfcc = rfc + rt + str(r)
+            rfcc = rfc + rt + str(ra)
             curp = str(fe.readData(path, "Hoja3", r, 16))
-            curpp = curp + rt + str(r)
+            curpp = curp + rt + str(ra)
 
             # Login
             f.texto("//input[contains(@id,'username')]", user)
@@ -140,9 +145,9 @@ class Sisia(unittest.TestCase):
             f.scrolling(100)
 
             # Sección personal
-            f.tiempo(10)
+            f.tiempo(6)
             f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
-            f.tiempo(8)
+            f.tiempo(6)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
             f.texto("//input[@formcontrolname='paterno']", ap)
@@ -164,7 +169,10 @@ class Sisia(unittest.TestCase):
             f.tiempo(15)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
+            if (r == casos):
+                break
 
+    #ok listo
     #@unittest.skip("Para instalaciones")
     def test_instalacion(self):
         driver = self.driver
@@ -194,22 +202,23 @@ class Sisia(unittest.TestCase):
 
             # instalacion
             f.scrolling(150)
-            f.tiempo(8)
+            f.tiempo(4)
             f.Click("//a[contains(.,'Instalaciones')]")
-            f.tiempo(8)
+            f.tiempo(4)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
             f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[1]", descripcion)
-            f.tiempo(3)
+            f.tiempo(1)
             f.texto("//input[contains(@formcontrolname,'calle')]", calle)
             f.texto("//input[contains(@formcontrolname,'colonia')]", colonia)
             f.texto("//input[@formcontrolname='cp']", cp)
             f.combo_index("//select[@formcontrolname='estado']", estado)
-            f.tiempo(3)
+            f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
-            f.tiempo(3)
+            f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'localidad')]", estado)
+            f.scrolling(100)
             f.tiempo(2)
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
             f.tiempo(2)
@@ -220,13 +229,17 @@ class Sisia(unittest.TestCase):
             f.tiempo(6)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
+            if (r == casos):
+                break
 
+
+    #ok listo
     def test_inventario(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -252,10 +265,10 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             f.Click("//a[@href='/recursos-humanos-materiales']")
             f.scrolling(100)
-            f.tiempo(10)
+            f.tiempo(2)
             #inventario
             f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
-            f.tiempo(8)
+            f.tiempo(2)
             f.texto("(//select[contains(@formcontrolname,'anioRegistro')])[1]", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
             f.combo_index("//select[contains(@formcontrolname,'tipoVehiculo')]", tv)
@@ -277,18 +290,22 @@ class Sisia(unittest.TestCase):
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[2]")
             f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
             f.scrolling(200)
-            f.tiempo(2)
+            f.tiempo(1)
             f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[2]")
-            f.tiempo(7)
+            f.tiempo(4)
             f.Click("//a[contains(.,'Salir')]")
-            f.tiempo(2)
+            f.tiempo(1)
+            if (r == casos):
+                break
+
+
 
     def test_bien(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -311,10 +328,10 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             f.Click("//a[@href='/recursos-humanos-materiales']")
             f.scrolling(100)
-            f.tiempo(8)
+            f.tiempo(3)
 
             f.Click("//a[@data-toggle='tab'][contains(.,'Bien o Servicio')]")
-            f.tiempo(6)
+            f.tiempo(3)
             f.scrolling(120)
             f.combo_index("(//select[contains(@formcontrolname,'anioRegistro')])[3]", 1)
             f.combo_index("//select[contains(@formcontrolname,'tipoBien')]", tv)
@@ -340,8 +357,12 @@ class Sisia(unittest.TestCase):
             f.scrolling(300)
             f.Click("(//button[contains(.,'Guardar')])[5]")
             f.tiempo(15)
+            f.scrolling(-1200)
+            f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
-            f.tiempo(2)
+            f.tiempo(1)
+            if (r == casos):
+                break
 
 
 
