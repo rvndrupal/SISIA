@@ -16,7 +16,7 @@ from selenium.common.exceptions import NoSuchElementException
 ren = 1
 campana=1
 excel="C://SISIA//Documentacion//Usuariosv4.xlsx"
-casos=4
+casos=2
 
 
 class Sisia(unittest.TestCase):
@@ -26,7 +26,7 @@ class Sisia(unittest.TestCase):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
         cls.driver.implicitly_wait(5)
         cls.driver.maximize_window()
-
+    #Ok listo
     def test_generales(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
@@ -45,6 +45,14 @@ class Sisia(unittest.TestCase):
             passw = fe.readData(path, "Hoja4", r, 2)
             ind3 = fe.readData(path, "Hoja4", r, 3)
             presu = fe.readData(path, "Hoja4", r, 4)
+            fi = datetime.now()
+            fi = fi.strftime('%d/%m/%Y')
+            fii = str(fi)
+            fecha2 = fe.readData(path, "Hoja4", r, 5)
+            fechaf = datetime.now() + timedelta(days=fecha2)
+            fechaf = fechaf.strftime('%d/%m/%Y')
+            fechaf = str(fechaf)
+            tg = fe.readData(path, "Hoja4", r, 6)
             f.texto("//input[contains(@id,'username')]", user)
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
@@ -54,7 +62,7 @@ class Sisia(unittest.TestCase):
             v = f.existe_try("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
             if (v == "Existe"):
                 f.Click("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
-                r=f.combo_index_existe("//select[@id='proyectoCampana']",campana)
+                re=f.combo_index_existe("//select[@id='proyectoCampana']",campana)
                 print(r)
                 f.tiempo(1)
                 f.combo_index("//select[@id='proyectoCampana']", campana)
@@ -73,14 +81,6 @@ class Sisia(unittest.TestCase):
 
             # Seleccion Campaña
 
-            fi = datetime.now()
-            fi = fi.strftime('%d/%m/%Y')
-            fii = str(fi)
-            fecha2 = fe.readData(path, "Hoja4", r, 4)
-            fechaf = datetime.now() + timedelta(days=fecha2)
-            fechaf = fechaf.strftime('%d/%m/%Y')
-            fechaf=str(fechaf)
-            tg = fe.readData(path, "Hoja4", r, 6)
             # generales
             f.Click("//a[contains(.,'Datos Generales')]")
             f.tiempo(1)
@@ -103,7 +103,8 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
-            if(r==casos):
+            print("Valor de R: "+str(r))
+            if (r == casos):
                 break
 
     #Ok listo
@@ -658,7 +659,7 @@ class Sisia(unittest.TestCase):
 
 
 
-
+    #ok listo
     def test_acciones(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
