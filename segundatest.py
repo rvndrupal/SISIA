@@ -402,7 +402,7 @@ class Sisia(unittest.TestCase):
 
 
 
-
+    #ok listo
     def test_necesidades(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
@@ -427,6 +427,7 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@href='/administracion-planeacion']")
             f.tiempo(1)
 
+
             #if registro
             v = f.existe_try("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
             print(v)
@@ -444,43 +445,124 @@ class Sisia(unittest.TestCase):
                 f.combo_index("//select[@id='proyectoCampana']", campana)
                 f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
                 f.scrolling(270)
-                f.tiempo(2)
+                f.tiempo(10)
 
 
             # Necesidades Físicas
             f.Click("//a[@data-toggle='tab'][contains(.,'Necesidades Físicas Financieras')]")
-            f.tiempo(8)
-            f.scrolling(200)
+            f.tiempo(6)
+            f.scrolling(300)
             f.combo_index("(//select[@formcontrolname='persona'])[1]", 1)
             f.combo_index("//select[@formcontrolname='meses']", mes1)
-            f.texto("//input[contains(@formcontrolname,'costoTotal')]", 6)
-            f.scrolling(130)
+            f.texto("//input[contains(@formcontrolname,'costoTotal')]", 2)
+            f.scrolling(80)
             v=f.existe_try("//input[contains(@formcontrolname,'inversionGOF')]")
-            if(v== "Existe"):
-                f.texto("//input[contains(@formcontrolname,'inversionGOF')]",3)
-                f.texto("//input[contains(@formcontrolname,'inversionGTP')]",3)
-                f.tiempo(3)
-                f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+            if(v=="Existe"):
+                f.scrolling(100)
                 f.tiempo(2)
-                e = f.existe_try("//button[contains(.,'Entendido')]")
-                if(e == "Existe"):
-                    f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
-                    f.tiempo(4)
-                    f.scrolling(250)
-                    f.tiempo(3)
-                elif (e == "Falso"):
-                    f.tiempo(4)
-                    f.scrolling(250)
-                    f.tiempo(3)
+                val=f.campo_enabled("//input[contains(@formcontrolname,'inversionGOF')]")
+                if(val=="Activo"):
+                    f.tiempo(1)
+                    f.texto("//input[contains(@formcontrolname,'inversionGOF')]",1)
+                    f.texto("//input[contains(@formcontrolname,'inversionGTP')]",1)
+                    f.tiempo(1)
+                    f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+                    f.tiempo(1)
+                    e = f.existe_try("//div[@class='alert alert-warning ng-star-inserted']")
+                    if(e == "Existe"):
+                        f.tiempo(3)
+                        f.scrolling(1200)
+                        f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                        f.tiempo(8)
+                        f.scrolling(-1300)
+                        f.tiempo(1)
+                        f.Click("//a[contains(.,'Salir')]")
+                        f.tiempo(2)
+                        if (r == casos):
+                            break
+
+                    elif (e == "Falso"):
+                        f.tiempo(1)
+                        f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                        f.tiempo(4)
+                        f.scrolling(250)
+                        f.tiempo(3)
+                        f.scrolling(1200)
+                        f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                        f.tiempo(8)
+                        f.scrolling(-1300)
+                        f.tiempo(1)
+                        f.Click("//a[contains(.,'Salir')]")
+                        f.tiempo(2)
+                        if (r == casos):
+                            break
+                elif(val=="Inactivo"):
+                    f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+                    f.tiempo(1)
+                    e = f.existe_try("//div[@class='alert alert-warning ng-star-inserted']")
+                    if (e == "Existe"):
+                        f.tiempo(3)
+                        f.scrolling(1200)
+                        f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                        f.tiempo(8)
+                        f.scrolling(-1300)
+                        f.tiempo(1)
+                        f.Click("//a[contains(.,'Salir')]")
+                        f.tiempo(2)
+                        if (r == casos):
+                            break
+
+                    elif (e == "Falso"):
+                        f.tiempo(1)
+                        f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                        f.tiempo(4)
+                        f.scrolling(250)
+                        f.tiempo(3)
+                        f.scrolling(1200)
+                        f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                        f.tiempo(8)
+                        f.scrolling(-1300)
+                        f.tiempo(1)
+                        f.Click("//a[contains(.,'Salir')]")
+                        f.tiempo(2)
+                        if (r == casos):
+                            break
+
 
             elif (v == "Falso"):
-                f.tiempo(4)
-                f.scrolling(250)
+                f.tiempo(1)
+                f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
                 f.tiempo(3)
 
+                e = f.existe_try("//div[@class='alert alert-warning ng-star-inserted']")
+                if (e == "Existe"):
+                    f.tiempo(3)
+                    f.scrolling(1200)
+                    f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                    f.tiempo(8)
+                    f.scrolling(-1300)
+                    f.tiempo(1)
+                    f.Click("//a[contains(.,'Salir')]")
+                    f.tiempo(2)
+                    if (r == casos):
+                        break
+                elif (e == "Falso"):
+                    f.tiempo(1)
+                    f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                    f.tiempo(3)
+                    f.scrolling(1200)
+                    f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
+                    f.tiempo(8)
+                    f.scrolling(-1300)
+                    f.tiempo(1)
+                    f.Click("//a[contains(.,'Salir')]")
+                    f.tiempo(2)
+                    if (r == casos):
+                        break
 
 
 
+            '''
             # Recursos Materiales
             f.combo_index("(//select[contains(@formcontrolname,'concepto')])[1]", ind3)
             f.scrolling(100)
@@ -498,11 +580,12 @@ class Sisia(unittest.TestCase):
                 f.tiempo(2)
                 f.Click("(//button[contains(.,'Agregar')])[4]")
                 f.tiempo(1)
-                e = f.existe_try("//button[contains(.,'Entendido')]")
+                e = f.existe_try("//div[@class='alert alert-warning ng-star-inserted']")
                 if(e == "Existe"):
-                    f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
+                    f.tiempo(1)
                     f.tiempo(1)
                 elif(e == "Falso"):
+                    f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
                     f.tiempo(1)
                     f.scrolling(100)
             elif(v == "Falso"):
@@ -559,13 +642,7 @@ class Sisia(unittest.TestCase):
                     f.Click("//a[contains(.,'Salir')]")
                     f.tiempo(2)
 
-            elif(v == "Falso"):
-                '''
-                f.scrolling(50)
-                f.Click("(//button[contains(.,'Agregar')])[3]")
-                f.tiempo(1)
-                f.Click("//button[contains(.,'Entendido')]")
-                '''
+            elif(v == "Falso"):             
                 f.tiempo(1)
                 f.scrolling(400)
                 f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[5]")
@@ -576,6 +653,8 @@ class Sisia(unittest.TestCase):
                 f.tiempo(2)
             if (r == casos):
                 break
+            '''
+
 
 
 
@@ -634,6 +713,7 @@ class Sisia(unittest.TestCase):
             f.combo_index("(//select[contains(@formcontrolname,'accion')])[2]", 1)
             f.tiempo(1)
             f.combo_index("(//select[contains(@ng-reflect-name,'actividad')])[2]", 1)
+            f.tiempo(1)
             f.combo_index("(//select[@ng-reflect-name='unidadMedida'])[6]", 1)
             f.tiempo(2)
             f.Click("//*[@id='tab-07']/div/app-indicadores-por-acciones/form/fieldset/div[6]/div/button")
