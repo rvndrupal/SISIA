@@ -146,4 +146,9 @@ class Funciones():
             val="Inactivo"
         return val
 
+    def limpiar(self,xpath):
+        c=self.driver.find_element_by_xpath(xpath).clear()
+        return c
+
+
 

@@ -16,7 +16,7 @@ from selenium.common.exceptions import NoSuchElementException
 ren = 1
 campana=1
 excel="C://SISIA//Documentacion//Usuariosv4.xlsx"
-casos=2
+casos=1
 
 
 class Sisia(unittest.TestCase):

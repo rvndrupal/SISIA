@@ -1,0 +1,4 @@
+CHECAR LA VERSION DE PYTEST JALA CON 3.10.1
+
+pip install pytest==3.10.1
+
