@@ -16,12 +16,13 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py -n 10
+#pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
 
 ren = 1
 excel="C://SISIA//Documentacion//Usuariosv3_1.xlsx"
 casos= 2
+ruta="https://prod.senasica.gob.mx/sisia/login"
 
 
 class Sisia(unittest.TestCase):
@@ -38,11 +39,13 @@ class Sisia(unittest.TestCase):
     def test01_datos(self):
         self.driver.implicitly_wait(30)
         driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
-        # driver.get("http://10.16.3.36:8004/login")
-        # driver.get("https://prod.senasica.gob.mx/sisia/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
+        f.tiempo(10)
+        #driver.get("http://10.16.3.29:8004/login")
+        # driver.get("http://10.16.3.36:8004/login")
+        driver.get(ruta)
+
         path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
@@ -65,8 +68,9 @@ class Sisia(unittest.TestCase):
             rt = random.choice(sample_letters)
             rt2 = random.choice(sample)
             raa = random.randint(1, 9)
+            ra1 = random.randint(1, 9)
             rfc = str(fe.readData(path, "Hoja3", r, 15))
-            rfcc = rfc + rt + str(raa)
+            rfcc = rfc + str(ra1)+ rt + str(raa)
             curpp = str("SENASICA/01-31/2019")
             # curpp = curp + rt + str(r)
             presidente = str(fe.readData(path, "Hoja3", r, 17))
@@ -81,7 +85,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
+            #f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
 
             # DATOS IE
@@ -143,7 +148,7 @@ class Sisia(unittest.TestCase):
     #@unittest.skip("Para pruebas de personas")
     def test02_persona(self):
         driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
+        driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
         path = excel
@@ -177,7 +182,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
+            #f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
 
             # Sección personal
@@ -223,7 +229,7 @@ class Sisia(unittest.TestCase):
     #@unittest.skip("Para instalaciones")
     def test03_instalacion(self):
         driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
+        driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
         path = excel
@@ -244,7 +250,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
+            #f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
 
             # instalacion
@@ -284,7 +291,7 @@ class Sisia(unittest.TestCase):
     #ok listo
     def test04_inventario(self):
         driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
+        driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
         path = excel
@@ -310,8 +317,10 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'username')]", user)
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            f.tiempo(1)
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
+            #f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
             f.tiempo(2)
             #inventario
@@ -332,7 +341,8 @@ class Sisia(unittest.TestCase):
             f.combo_index("(//select[contains(@formcontrolname,'nombreResguardante')])[1]", 1)
             f.texto("//input[@formcontrolname='kilometraje']", kil)
             f.combo_index("//select[contains(@formcontrolname,'proyectoOrigen')]", po)
-            f.Click("//input[contains(@ng-reflect-value,'1')]")
+            f.Click("//*[@id='tab-02']/div/app-inventario-vehicular/form/div[22]/div/label[1]/input")
+            #f.Click("//input[contains(@ng-reflect-value,'1')]")
             f.scrolling(550)
             f.tiempo(1)
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[2]")
@@ -350,7 +360,7 @@ class Sisia(unittest.TestCase):
 
     def test05_bien(self):
         driver = self.driver
-        driver.get("http://10.16.3.29:8004/login")
+        driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
         path = excel
@@ -374,7 +384,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
-            f.Click("//a[@href='/recursos-humanos-materiales']")
+            #f.Click("//a[@href='/recursos-humanos-materiales']")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
             f.tiempo(3)
 
