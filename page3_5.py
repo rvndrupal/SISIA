@@ -1,3 +1,5 @@
+#import HtmlTestRunner
+#from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -11,11 +13,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 from datetime import datetime
 from datetime import timedelta
 import string
-#pytest page1.py  page2.py  page3.py  page4.py  page5.py  page6.py  -n 6
+#reporte simple python page3.py
+#pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-ren = 1
-excel="C://SISIA//Documentacion//Usuariosv3.xlsx"
-casos=6
+#pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py -n 10
+#pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
+
+ren = 4
+excel="C://SISIA//Documentacion//Usuariosv3_5.xlsx"
+casos= 6
 
 
 class Sisia(unittest.TestCase):
@@ -24,17 +30,17 @@ class Sisia(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
-        cls.driver.implicitly_wait(25)
         cls.driver.maximize_window()
+        cls.driver.implicitly_wait(30)
 
-
-
-
-
-    #@unittest.skip("Para pruebas de datos")
-    def test_datos(self):
+    # @unittest.skip("Para pruebas de datos")
+    # Primero
+    def test01_datos(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
+        # driver.get("http://10.16.3.36:8004/login")
+        # driver.get("https://prod.senasica.gob.mx/sisia/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
         path = excel
@@ -58,11 +64,11 @@ class Sisia(unittest.TestCase):
             sample = 'XFTRGERDFRESCDFTYUIOPKASDR'
             rt = random.choice(sample_letters)
             rt2 = random.choice(sample)
-            r = random.randint(1, 9)
+            raa = random.randint(1, 9)
             rfc = str(fe.readData(path, "Hoja3", r, 15))
-            rfcc = rfc + rt + str(r)
-            curp = str(fe.readData(path, "Hoja3", r, 16))
-            curpp = curp + rt + str(r)
+            rfcc = rfc + rt + str(raa)
+            curpp = str("SENASICA/01-31/2019")
+            # curpp = curp + rt + str(r)
             presidente = str(fe.readData(path, "Hoja3", r, 17))
             secretario = str(fe.readData(path, "Hoja3", r, 18))
             tesorero = str(fe.readData(path, "Hoja3", r, 19))
@@ -70,7 +76,7 @@ class Sisia(unittest.TestCase):
             pdf2 = str(fe.readData(path, "Hoja3", r, 21))
             pdf3 = str(fe.readData(path, "Hoja3", r, 22))
 
-            #Login
+            # Login
             f.texto("//input[contains(@id,'username')]", user)
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
@@ -80,33 +86,62 @@ class Sisia(unittest.TestCase):
 
             # DATOS IE
             f.tiempo(5)
+            f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
+            f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
             f.texto("//textarea[contains(@formcontrolname,'vision')]", vision)
             f.texto("(//input[contains(@formcontrolname,'fecha')])[1]", fecha2)
             f.combo_texto("(//select[contains(@formcontrolname,'anioRegistro')])[2]", registro)
             f.texto("(//input[contains(@type,'text')])[7]", telefono)
             f.texto("(//input[@formcontrolname='rfc'])[2]", rfcc)
-            f.tiempo(1)
+            f.limpiar("(//input[contains(@type,'text')])[9]")
+            f.tiempo(.5)
             f.texto("(//input[contains(@type,'text')])[9]", curpp)
-            f.tiempo(1)
+            f.tiempo(.5)
+            f.limpiar("(//input[contains(@maxlength,'80')])[1]")
             f.texto("(//input[contains(@maxlength,'80')])[1]", presidente)
+            f.limpiar("(//input[contains(@maxlength,'80')])[2]")
             f.texto("(//input[contains(@maxlength,'80')])[2]", secretario)
+            f.limpiar("(//input[@maxlength='80'])[3]")
             f.texto("(//input[@maxlength='80'])[3]", tesorero)
-            f.scrolling(300)
-            f.upload("(//input[contains(@type,'file')])[1]", pdf1)
-            f.upload("(//input[contains(@type,'file')])[2]", pdf2)
-            f.upload("(//input[contains(@type,'file')])[3]", pdf3)
-            f.Click("//button[@class='btn btn-primary ng-star-inserted'][contains(.,'Guardar')]")
-            f.tiempo(25)
-            f.scrolling(120)
-            f.Click("//a[contains(.,'Salir')]")
-            f.tiempo(2)
+            f.scrolling(150)
+            pdf = f.existe_try("(//input[contains(@type,'file')])[1]")
+            print(pdf)
+            if (pdf == "Existe"):
+                f.upload("(//input[contains(@type,'file')])[1]", pdf1)
+                f.upload("(//input[contains(@type,'file')])[2]", pdf2)
+                f.upload("(//input[contains(@type,'file')])[3]", pdf3)
+                f.Click("//button[@class='btn btn-primary ng-star-inserted'][contains(.,'Guardar')]")
+                f.tiempo(28)
+                f.Click("//button[contains(.,'Ok')]")
+                f.tiempo(2)
+                f.scrolling(-1200)
+                f.tiempo(1)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(1)
+            print("Valor de R: " + str(r))
+            if(r == casos):
+                break
+            imgpdf = f.existe_try("(//img[@src='assets/img/pdf-img.png'])[1]")
+            if (imgpdf == "Existe"):
+                f.tiempo(1)
+                f.Click("//button[contains(.,'Guardar cambios')]")
+                f.tiempo(2)
+                f.Click("//button[contains(.,'Ok')]")
+                f.scrolling(-1200)
+                f.tiempo(1)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(1)
+            print("Valor de R: " + str(r))
             if (r == casos):
                 break
 
+
+
+
     #ok listo
     #@unittest.skip("Para pruebas de personas")
-    def test_persona(self):
+    def test02_persona(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
@@ -131,8 +166,9 @@ class Sisia(unittest.TestCase):
             rt = random.choice(sample_letters)
             rt2 = random.choice(sample)
             ra = random.randint(1, 9)
+            ra1 = random.randint(1, 9)
             rfc = str(fe.readData(path, "Hoja3", r, 15))
-            rfcc = rfc + rt + str(ra)
+            rfcc = rfc + str(ra1)+ rt + str(ra)
             curp = str(fe.readData(path, "Hoja3", r, 16))
             curpp = curp + rt + str(ra)
 
@@ -163,23 +199,33 @@ class Sisia(unittest.TestCase):
             f.combo_index("//select[contains(@formcontrolname,'ubicacionLaboral')]", laboral)
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[1]")
             f.tiempo(1)
-            f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
-            f.tiempo(1)
-            f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[1]")
-            f.tiempo(15)
-            f.Click("//a[contains(.,'Salir')]")
-            f.tiempo(2)
+            v=f.existe_try("//button[@class='btn btn-default'][contains(.,'Entendido')]")
+            if(v == "Existe"):
+                f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
+                f.tiempo(1)
+                f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[1]")
+                f.tiempo(12)
+                f.scrolling(-1200)
+                f.tiempo(1)
+                f.Click("//a[contains(.,'Salir')]")
+                f.tiempo(1)
+            print("Valor de R: " + str(r))
             if (r == casos):
                 break
 
+
+
+
+
+
     #ok listo
     #@unittest.skip("Para instalaciones")
-    def test_instalacion(self):
+    def test03_instalacion(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
         fe = Funexcel(driver)
-        path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -213,10 +259,11 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'calle')]", calle)
             f.texto("//input[contains(@formcontrolname,'colonia')]", colonia)
             f.texto("//input[@formcontrolname='cp']", cp)
+            f.tiempo(2)
             f.combo_index("//select[@formcontrolname='estado']", estado)
             f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
-            f.tiempo(2)
+            f.tiempo(3)
             f.combo_index("//select[contains(@formcontrolname,'localidad')]", estado)
             f.scrolling(100)
             f.tiempo(2)
@@ -234,7 +281,7 @@ class Sisia(unittest.TestCase):
 
 
     #ok listo
-    def test_inventario(self):
+    def test04_inventario(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
@@ -300,7 +347,7 @@ class Sisia(unittest.TestCase):
 
 
 
-    def test_bien(self):
+    def test05_bien(self):
         driver = self.driver
         driver.get("http://10.16.3.29:8004/login")
         f = Funciones(driver)
@@ -335,6 +382,7 @@ class Sisia(unittest.TestCase):
             f.scrolling(120)
             f.combo_index("(//select[contains(@formcontrolname,'anioRegistro')])[3]", 1)
             f.combo_index("//select[contains(@formcontrolname,'tipoBien')]", tv)
+            f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'concepto')]", po)
             f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[2]", mision)
             f.scrolling(100)
@@ -367,6 +415,9 @@ class Sisia(unittest.TestCase):
 
 
 
+
+
+
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
@@ -377,7 +428,7 @@ class Sisia(unittest.TestCase):
 
 if  __name__ == '__main__':
     unittest.main()
-
+    #unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="Resultados Test"))
 
 
 

@@ -20,7 +20,7 @@ import string
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
 
 ren = 1
-excel="C://SISIA//Documentacion//Usuariosv3_1.xlsx"
+excel="C://SISIA//Documentacion//Usuariosv3_8.xlsx"
 casos= 2
 
 
@@ -168,7 +168,7 @@ class Sisia(unittest.TestCase):
             ra = random.randint(1, 9)
             ra1 = random.randint(1, 9)
             rfc = str(fe.readData(path, "Hoja3", r, 15))
-            rfcc = rfc + str(ra1) + rt + str(ra)
+            rfcc = rfc + str(ra1)+ rt + str(ra)
             curp = str(fe.readData(path, "Hoja3", r, 16))
             curpp = curp + rt + str(ra)
 
@@ -209,7 +209,6 @@ class Sisia(unittest.TestCase):
                 f.tiempo(1)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(1)
-
             print("Valor de R: " + str(r))
             if (r == casos):
                 break
