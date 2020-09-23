@@ -41,7 +41,7 @@ class Sisia(unittest.TestCase):
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(10)
+        f.tiempo(20)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -110,6 +110,7 @@ class Sisia(unittest.TestCase):
             f.limpiar("(//input[@maxlength='80'])[3]")
             f.texto("(//input[@maxlength='80'])[3]", tesorero)
             f.scrolling(150)
+            driver.implicitly_wait(2)
             pdf = f.existe_try("(//input[contains(@type,'file')])[1]")
             print(pdf)
             if (pdf == "Existe"):
@@ -127,8 +128,8 @@ class Sisia(unittest.TestCase):
             print("Valor de R: " + str(r))
             if(r == casos):
                 break
-            imgpdf = f.existe_try("(//img[@src='assets/img/pdf-img.png'])[1]")
-            if (imgpdf == "Existe"):
+
+            elif (pdf == "Falso"):
                 f.tiempo(1)
                 f.Click("//button[contains(.,'Guardar cambios')]")
                 f.tiempo(2)
@@ -204,7 +205,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'costoMensual')]", costo)
             f.combo_index("//select[contains(@formcontrolname,'ubicacionLaboral')]", laboral)
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[1]")
-            f.tiempo(1)
+            driver.implicitly_wait(8)
+            f.tiempo(8)
             v = f.existe_try("//button[@class='btn btn-default'][contains(.,'Entendido')]")
             if (v == "Existe"):
                 f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
@@ -267,12 +269,15 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'calle')]", calle)
             f.texto("//input[contains(@formcontrolname,'colonia')]", colonia)
             f.texto("//input[@formcontrolname='cp']", cp)
-            f.tiempo(2)
+            driver.implicitly_wait(8)
             f.combo_index("//select[@formcontrolname='estado']", estado)
-            f.tiempo(2)
+            driver.implicitly_wait(8)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
-            f.tiempo(3)
+            driver.implicitly_wait(8)
+            f.tiempo(8)
             f.combo_index("//select[contains(@formcontrolname,'localidad')]", estado)
+            driver.implicitly_wait(8)
+            f.tiempo(8)
             f.scrolling(100)
             f.tiempo(2)
             f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")

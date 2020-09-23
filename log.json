@@ -1,0 +1,5 @@
+{"pytest_version": "6.0.2", "$report_type": "SessionStart"}
+{"nodeid": "", "outcome": "passed", "longrepr": null, "result": null, "sections": [], "$report_type": "CollectReport"}
+{"nodeid": "page3.py::Sisia", "outcome": "passed", "longrepr": null, "result": null, "sections": [], "$report_type": "CollectReport"}
+{"nodeid": "page3.py", "outcome": "passed", "longrepr": null, "result": null, "sections": [], "$report_type": "CollectReport"}
+{"exitstatus": 3, "$report_type": "SessionFinish"}
