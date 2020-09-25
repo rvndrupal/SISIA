@@ -13,11 +13,15 @@ from datetime import timedelta
 import string
 from selenium.common.exceptions import NoSuchElementException
 
+#pytest test2_1.py test2_2.py test2_3.py test2_4.py test2_5.py test2_6.py test2_7.py test2_8.py test2_9.py test2_10.py  -n 10
+#pytest -v -s --html=test1.html --self-contained-html test2_1.py
+
 ren = 1
 campana=1
 excel="C://SISIA//Documentacion//Usuariosv4.xlsx"
 casos=1
-ruta="https://prod.senasica.gob.mx/sisia/login"
+#ruta="https://prod.senasica.gob.mx/sisia/login"
+ruta="http://10.16.3.29:8004/login"
 
 
 class Sisia(unittest.TestCase):
@@ -25,18 +29,17 @@ class Sisia(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
-        cls.driver.implicitly_wait(5)
+        cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
+
     #Ok listo
     def test01_generales(self):
         driver = self.driver
-        driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
-
-        #path = "C://SISIA//Documentacion//Usuariosv3.xlsx"
+        f.tiempo(10+casos)
+        driver.get(ruta)
         path = excel
-
         hoja = "Hoja4"
         rows = fe.getRowCount(path, hoja)
         for r in range(ren, rows + 1):
@@ -57,7 +60,8 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@id,'username')]", user)
             f.texto("//input[contains(@id,'password')]", passw)
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
-            f.Click("//a[@href='/administracion-planeacion']")
+            f.tiempo(1)
+            f.Click("//*[@id='menuSisia']/ul/li[1]/a")
             f.tiempo(2)
 
             v = f.existe_try("(//span[contains(@class,'glyphicon glyphicon-pencil')])[1]")
@@ -73,7 +77,7 @@ class Sisia(unittest.TestCase):
                 f.scrolling(250)
             elif (v == "Falso"):
                 f.Click("//a[contains(.,'Registro de Programa')]")
-                f.tiempo(4)
+                f.tiempo(40)
                 f.combo_index("//select[@id='proyectoCampana']", campana)
                 f.tiempo(1)
                 f.combo_index("//select[@formcontrolname='presupuestoRadio']", presu)
@@ -88,15 +92,25 @@ class Sisia(unittest.TestCase):
             f.texto("//input[@id='fecha_inicial']", fii)
             f.texto("//input[@id='fecha_termino']", fechaf)
             f.scrolling(100)
+            f.limpiar("//textarea[@formcontrolname='introduccion']")
             f.texto("//textarea[@formcontrolname='introduccion']", tg)
+            f.limpiar("//textarea[@formcontrolname='objetivo_general']")
             f.texto("//textarea[@formcontrolname='objetivo_general']", tg)
+            f.limpiar("//textarea[@formcontrolname='objetivo_particular']")
             f.texto("//textarea[@formcontrolname='objetivo_particular']", tg)
+            f.limpiar("//textarea[@formcontrolname='justificacion']")
             f.texto("//textarea[@formcontrolname='justificacion']", tg)
+            f.limpiar("//textarea[@formcontrolname='viabilidad']")
             f.texto("//textarea[@formcontrolname='viabilidad']", tg)
+            f.limpiar("//textarea[@formcontrolname='prioridad']")
             f.texto("//textarea[@formcontrolname='prioridad']", tg)
+            f.limpiar("//textarea[contains(@formcontrolname,'sanitario')]")
             f.texto("//textarea[contains(@formcontrolname,'sanitario')]", tg)
+            f.limpiar("//textarea[@formcontrolname='proyeccion']")
             f.texto("//textarea[@formcontrolname='proyeccion']", tg)
+            f.limpiar("//textarea[@formcontrolname='riesgo_accion']")
             f.texto("//textarea[@formcontrolname='riesgo_accion']", tg)
+            f.limpiar("//textarea[contains(@formcontrolname,'resultado_esperado')]")
             f.texto("//textarea[contains(@formcontrolname,'resultado_esperado')]", tg)
             f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[1]")
             f.tiempo(8)
@@ -171,7 +185,9 @@ class Sisia(unittest.TestCase):
             f.tab("//textarea[contains(@formcontrolname,'estatusSanitario')]")
             f.Click("(//button[contains(.,'Agregar')])[1]")
             f.tiempo(1)
+            driver.implicitly_wait(3)
             ex=f.existe_try("//div[contains(@class,'alert alert-warning ng-star-inserted')]")
+            #ex=f.existe_try("//button[contains(.,'Entendido')]")
             if(ex=="Existe"):
                 f.scrolling(300)
                 f.tiempo(2)
@@ -267,15 +283,20 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'superficie')]", fecha2)
             f.texto("//input[@formcontrolname='nProductores']", pob)
             f.combo_index("(//select[contains(@formcontrolname,'cultivoEspecie')])[2]", ind6)
+            f.tiempo(2)
             f.combo_index("(//select[@formcontrolname='unidadMedida'])[2]", ind3)
+            f.tiempo(2)
             f.texto("//input[@formcontrolname='volTotalProduccion']", pob)
             f.texto("//input[@formcontrolname='valTotalProduccion']", vp)
             f.texto("//input[@formcontrolname='productoresEntidad']", fecha2)
             f.texto("//input[contains(@ng-reflect-name,'unidadesAtenderCoberturaFitosa')]", pob)
             f.texto("//input[@formcontrolname='productoresAtender']", vp)
+            f.tiempo(2)
             f.combo_index("//select[@formcontrolname='plagasEnfermedadesCultivoEspecie']", ind6)
+            f.tiempo(2)
             f.Click("(//button[contains(@class,'btn btn-primary btn-block btn-sm')])[2]")
             f.tiempo(1)
+            driver.implicitly_wait(3)
             v=f.existe_try("(//div[contains(@class,'alert alert-warning ng-star-inserted')])[1]")
             if(v=="Existe"):
                 #f.Click("//button[@class='btn btn-default ng-star-inserted'][contains(.,'Entendido')]")
@@ -350,13 +371,13 @@ class Sisia(unittest.TestCase):
             f.tiempo(3)
             f.scrolling(180)
             f.combo_index("(//select[contains(@formcontrolname,'accion')])[1]", ind3)
-            f.tiempo(1)
+            f.tiempo(2)
             f.combo_index("(//select[@formcontrolname='actividad'])[1]", 1)
-            f.tiempo(1)
+            f.tiempo(2)
             f.combo_index("(//select[contains(@formcontrolname,'unidadMedida')])[3]", 1)
-            f.tiempo(1)
+            f.tiempo(2)
             f.combo_index("//select[@formcontrolname='responsableActividad']", 1)
-            f.tiempo(1)
+            f.tiempo(2)
             f.scrolling(100)
             f.texto("//input[@id='" + str(mes1) + "']", mes2)
             f.texto("//input[@id='" + str(mes2) + "']", vp)
@@ -372,6 +393,7 @@ class Sisia(unittest.TestCase):
 
 
             #v=f.existe_try("//button[contains(.,'Entendido')]")
+            driver.implicitly_wait(3)
             v = f.existe_try("(//div[contains(@class,'alert alert-warning ng-star-inserted')])[1]")
             if (v == "Existe"):
                 f.tiempo(1)
@@ -458,6 +480,7 @@ class Sisia(unittest.TestCase):
             f.combo_index("//select[@formcontrolname='meses']", mes1)
             f.texto("//input[contains(@formcontrolname,'costoTotal')]", 2)
             f.scrolling(80)
+            driver.implicitly_wait(4)
             v=f.existe_try("//input[contains(@formcontrolname,'inversionGOF')]")
             if(v=="Existe"):
                 f.scrolling(100)

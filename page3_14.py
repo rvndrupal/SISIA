@@ -21,7 +21,7 @@ import string
 
 ren = 1
 excel="C://SISIA//Documentacion//Usuariosv3_14.xlsx"
-casos= 3
+casos= 2
 ruta="https://prod.senasica.gob.mx/sisia/login"
 
 
