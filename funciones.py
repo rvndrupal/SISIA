@@ -128,14 +128,17 @@ class Funciones():
 
 
 
-    def combo_index_existe(self,xpath,index):
-        try:
-            ct = Select(self.driver.find_element_by_xpath(xpath))
-            ct.select_by_index(index)
-            v= "Existe"
-        except NoSuchElementException:
-            v = "Falso"
-        return v
+    def combo_index_existe(self,xpath):
+        val = Select(self.driver.find_element_by_xpath(xpath))
+        valo=len(val.options)
+        return valo
+
+    def combo_index_existe2(self,xpath):
+        val = self.driver.find_elements_by_xpath(xpath)
+        #valo=val.text
+        return val
+
+
 
 
     def campo_enabled(self,xpath):
@@ -149,6 +152,19 @@ class Funciones():
     def limpiar(self,xpath):
         c=self.driver.find_element_by_xpath(xpath).clear()
         return c
+
+    def tamano(self,css):
+        v=self.driver.find_element_by_css_selector(css)
+        return v
+
+    def obtenerTexto(self,xpath):
+        val=self.driver.find_element_by_xpath(xpath).text
+        return val
+
+    def combo_index_Ok(self,xpath):
+        ct = self.driver.find_elements_by_xpath(xpath)
+        ct=len(ct)
+        return ct
 
 
 

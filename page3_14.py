@@ -16,13 +16,16 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
+#pytest -v -s --html=report14.html --self-contained-html page3_14.py
+
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
 
 ren = 1
 excel="C://SISIA//Documentacion//Usuariosv3_14.xlsx"
 casos= 2
-ruta="https://prod.senasica.gob.mx/sisia/login"
+#ruta="https://prod.senasica.gob.mx/sisia/login"
+ruta="http://10.16.3.29:8004/login"
 
 
 class Sisia(unittest.TestCase):
@@ -56,7 +59,7 @@ class Sisia(unittest.TestCase):
             mision = fe.readData(path, "Hoja3", r, 10)
             vision = fe.readData(path, "Hoja3", r, 11)
             fecha = fe.readData(path, "Hoja3", r, 12)
-            fecha2 = datetime.now() + timedelta(days=fecha)
+            fecha2 = datetime.now()
             fecha2 = fecha2.strftime('%d/%m/%Y')
             fecha3 = datetime.now()
             fecha4 = fecha3.strftime('%d/%m/%Y')
@@ -94,7 +97,7 @@ class Sisia(unittest.TestCase):
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
             f.texto("//textarea[contains(@formcontrolname,'vision')]", vision)
-            f.texto("(//input[contains(@formcontrolname,'fecha')])[1]", fecha2)
+            f.texto("(//input[contains(@formcontrolname,'fecha')])[1]",fecha2)
             f.combo_texto("(//select[contains(@formcontrolname,'anioRegistro')])[2]", registro)
             f.texto("(//input[contains(@type,'text')])[7]", telefono)
             f.texto("(//input[@formcontrolname='rfc'])[2]", rfcc)
