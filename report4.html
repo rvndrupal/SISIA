@@ -405,7 +405,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report4.html</h1>
-    <p>Report generated on 03-Nov-2020 at 11:41:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
+    <p>Report generated on 03-Nov-2020 at 16:29:54 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -424,8 +424,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.7.6</td></tr></table>
     <h2>Summary</h2>
-    <p>0 tests ran in 82.87 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">0 rerun</span>
+    <p>5 tests ran in 1564.32 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">0 rerun</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -435,4 +435,49 @@ function filter_table(elem) {
           <th class="sortable numeric" col="duration">Duration</th>
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
-          <th colspan="4">No results found. Try to check the filters</th></tr></thead></table></body></html>
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">page3_4.py::Sisia::test04_inventario</td>
+          <td class="col-duration">240.50</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;page3_4.Sisia testMethod=test04_inventario&gt;<br/><br/>    def test04_inventario(self):<br/>        driver = self.driver<br/>        driver.get(ruta)<br/>        f = Funciones(driver)<br/>        fe = Funexcel(driver)<br/>        path = excel<br/>        hoja = &quot;Hoja3&quot;<br/>        rows = fe.getRowCount(path, hoja)<br/>        for r in range(ren, rows + 1):<br/>            user = fe.readData(path, &quot;Hoja3&quot;, r, 1)<br/>            passw = fe.readData(path, &quot;Hoja3&quot;, r, 9)<br/>            ano = str(fe.readData(path, &quot;Hoja3&quot;, r, 36))<br/>            ni = str(fe.readData(path, &quot;Hoja3&quot;, r, 37))<br/>            ni = str(fe.readData(path, &quot;Hoja3&quot;, r, 37))<br/>            tv = str(fe.readData(path, &quot;Hoja3&quot;, r, 38))<br/>            marcam = str(fe.readData(path, &quot;Hoja3&quot;, r, 39))<br/>            modelom = str(fe.readData(path, &quot;Hoja3&quot;, r, 40))<br/>            placam = str(fe.readData(path, &quot;Hoja3&quot;, r, 41))<br/>            ns = str(fe.readData(path, &quot;Hoja3&quot;, r, 42))<br/>            cil = str(fe.readData(path, &quot;Hoja3&quot;, r, 43))<br/>            vf = str(fe.readData(path, &quot;Hoja3&quot;, r, 44))<br/>            nf = str(fe.readData(path, &quot;Hoja3&quot;, r, 45))<br/>            kil = str(fe.readData(path, &quot;Hoja3&quot;, r, 46))<br/>            po = str(fe.readData(path, &quot;Hoja3&quot;, r, 47))<br/>            # Login<br/>            f.texto(&quot;//input[contains(@id,&#x27;username&#x27;)]&quot;, user)<br/>            f.texto(&quot;//input[contains(@id,&#x27;password&#x27;)]&quot;, passw)<br/>            f.Click(&quot;//button[@class=&#x27;btn btn-primary pull-right&#x27;][contains(.,&#x27;Iniciar sesión&#x27;)]&quot;)<br/>            f.tiempo(1)<br/>            f.Click(&quot;//a[@aria-expanded=&#x27;false&#x27;][contains(.,&#x27;Configuraciones&#x27;)]&quot;)<br/>            #f.Click(&quot;//a[@href=&#x27;/recursos-humanos-materiales&#x27;]&quot;)<br/>            f.Click(&quot;//*[@id=&#x27;menuSisia&#x27;]/ul/li[2]/ul/li[1]/a&quot;)<br/>            f.scrolling(100)<br/>            f.tiempo(2)<br/>            #inventario<br/>            #f.Click(&quot;//a[@data-toggle=&#x27;tab&#x27;][contains(.,&#x27;Inventario Vehicular&#x27;)]&quot;)<br/>            f.Click(&quot;//a[contains(.,&#x27;Inventario Vehicular&#x27;)]&quot;)<br/>            f.tiempo(2)<br/>            f.texto(&quot;(//select[contains(@formcontrolname,&#x27;anioRegistro&#x27;)])[1]&quot;, ano)<br/>            f.texto(&quot;(//input[contains(@formcontrolname,&#x27;numInventario&#x27;)])[1]&quot;, ni)<br/>&gt;           f.combo_index(&quot;//select[contains(@formcontrolname,&#x27;tipoVehiculo&#x27;)]&quot;, tv)<br/><br/>page3_4.py:352: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>funciones.py:47: in combo_index<br/>    ct.select_by_index(index)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.select.Select object at 0x0000026F12AA62C8&gt;, index = &#x27;None&#x27;<br/><br/>    def select_by_index(self, index):<br/>        &quot;&quot;&quot;Select the option at the given index. This is done by examing the &quot;index&quot; attribute of an<br/>           element, and not merely by counting.<br/>    <br/>           :Args:<br/>            - index - The option at this index will be selected<br/>    <br/>           throws NoSuchElementException If there is no option with specisied index in SELECT<br/>           &quot;&quot;&quot;<br/>        match = str(index)<br/>        for opt in self.options:<br/>            if opt.get_attribute(&quot;index&quot;) == match:<br/>                self._setSelected(opt)<br/>                return<br/>&gt;       raise NoSuchElementException(&quot;Could not locate element with index %d&quot; % index)<br/><span class="error">E       TypeError: %d format: a number is required, not str</span><br/><br/>c:\users\rodrigo.villanueva.c\appdata\local\programs\python\python37\lib\site-packages\selenium\webdriver\support\select.py:103: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">page3_4.py::Sisia::test05_bien</td>
+          <td class="col-duration">246.67</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;page3_4.Sisia testMethod=test05_bien&gt;<br/><br/>    def test05_bien(self):<br/>        driver = self.driver<br/>        driver.get(ruta)<br/>        f = Funciones(driver)<br/>        fe = Funexcel(driver)<br/>        path = excel<br/>        hoja = &quot;Hoja3&quot;<br/>        rows = fe.getRowCount(path, hoja)<br/>        for r in range(ren, rows + 1):<br/>            user = fe.readData(path, &quot;Hoja3&quot;, r, 1)<br/>            passw = fe.readData(path, &quot;Hoja3&quot;, r, 9)<br/>            tv = str(fe.readData(path, &quot;Hoja3&quot;, r, 38))<br/>            mision = fe.readData(path, &quot;Hoja3&quot;, r, 10)<br/>            marcam = str(fe.readData(path, &quot;Hoja3&quot;, r, 39))<br/>            nf = str(fe.readData(path, &quot;Hoja3&quot;, r, 45))<br/>            po = str(fe.readData(path, &quot;Hoja3&quot;, r, 47))<br/>            modelom = str(fe.readData(path, &quot;Hoja3&quot;, r, 40))<br/>            ns = str(fe.readData(path, &quot;Hoja3&quot;, r, 42))<br/>            vf = str(fe.readData(path, &quot;Hoja3&quot;, r, 44))<br/>            fecha3 = datetime.now()<br/>            fecha4 = fecha3.strftime(&#x27;%d/%m/%Y&#x27;)<br/>            # Login<br/>            f.texto(&quot;//input[contains(@id,&#x27;username&#x27;)]&quot;, user)<br/>            f.texto(&quot;//input[contains(@id,&#x27;password&#x27;)]&quot;, passw)<br/>            f.Click(&quot;//button[@class=&#x27;btn btn-primary pull-right&#x27;][contains(.,&#x27;Iniciar sesión&#x27;)]&quot;)<br/>            f.Click(&quot;//a[@aria-expanded=&#x27;false&#x27;][contains(.,&#x27;Configuraciones&#x27;)]&quot;)<br/>            #f.Click(&quot;//a[@href=&#x27;/recursos-humanos-materiales&#x27;]&quot;)<br/>            f.Click(&quot;//*[@id=&#x27;menuSisia&#x27;]/ul/li[2]/ul/li[1]/a&quot;)<br/>            f.scrolling(100)<br/>            f.tiempo(2)<br/>    <br/>            f.Click(&quot;//a[contains(.,&#x27;Bien o Servicio&#x27;)]&quot;)<br/>            f.tiempo(3)<br/>            f.scrolling(120)<br/>            f.combo_index(&quot;//select[@ng-reflect-name=&#x27;anioRegistro&#x27;]&quot;, 1)<br/>    <br/>&gt;           f.combo_index(&quot;//select[contains(@formcontrolname,&#x27;tipoBien&#x27;)]&quot;, tv)<br/><br/>page3_4.py:420: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>funciones.py:47: in combo_index<br/>    ct.select_by_index(index)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.select.Select object at 0x0000026F1262D908&gt;, index = &#x27;None&#x27;<br/><br/>    def select_by_index(self, index):<br/>        &quot;&quot;&quot;Select the option at the given index. This is done by examing the &quot;index&quot; attribute of an<br/>           element, and not merely by counting.<br/>    <br/>           :Args:<br/>            - index - The option at this index will be selected<br/>    <br/>           throws NoSuchElementException If there is no option with specisied index in SELECT<br/>           &quot;&quot;&quot;<br/>        match = str(index)<br/>        for opt in self.options:<br/>            if opt.get_attribute(&quot;index&quot;) == match:<br/>                self._setSelected(opt)<br/>                return<br/>&gt;       raise NoSuchElementException(&quot;Could not locate element with index %d&quot; % index)<br/><span class="error">E       TypeError: %d format: a number is required, not str</span><br/><br/>c:\users\rodrigo.villanueva.c\appdata\local\programs\python\python37\lib\site-packages\selenium\webdriver\support\select.py:103: TypeError<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">page3_4.py::Sisia::test01_datos</td>
+          <td class="col-duration">277.54</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">page3_4.py::Sisia::test02_persona</td>
+          <td class="col-duration">403.73</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">page3_4.py::Sisia::test03_instalacion</td>
+          <td class="col-duration">386.89</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>

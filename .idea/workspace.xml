@@ -5,7 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documento2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/documento2.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documento2_1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documento3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/documento3.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documento5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page2.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/page3.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page3_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_10.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page3_11.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_11.py" afterDir="false" />
@@ -20,7 +24,6 @@
       <change beforePath="$PROJECT_DIR$/page3_7.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_7.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page3_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_8.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page3_9.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_9.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report1.html" beforeDir="false" afterPath="$PROJECT_DIR$/report1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report10.html" beforeDir="false" afterPath="$PROJECT_DIR$/report10.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report2.html" beforeDir="false" afterPath="$PROJECT_DIR$/report2.html" afterDir="false" />
@@ -31,7 +34,6 @@
       <change beforePath="$PROJECT_DIR$/report7.html" beforeDir="false" afterPath="$PROJECT_DIR$/report7.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report8.html" beforeDir="false" afterPath="$PROJECT_DIR$/report8.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report9.html" beforeDir="false" afterPath="$PROJECT_DIR$/report9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.html" beforeDir="false" afterPath="$PROJECT_DIR$/test1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ADEFOC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
@@ -69,22 +71,7 @@
       <recent name="C:\SISIA" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for page3_2.Sisia.test05_bien">
-    <configuration name="pytest for page3_2.Sisia.test01_datos" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="SISIA" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page3_2.Sisia.test01_datos&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.pytest for page3.Sisia.test01_datos">
     <configuration name="pytest for page3_2.Sisia.test02_persona" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,13 +132,28 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for page3.Sisia.test01_datos" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="SISIA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;page3.Sisia.test01_datos&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for page3.Sisia.test01_datos" />
         <item itemvalue="Python tests.pytest for page3_2.Sisia.test05_bien" />
         <item itemvalue="Python tests.pytest for page3_2.Sisia.test04_inventario" />
         <item itemvalue="Python tests.pytest for page3_2.Sisia.test03_instalacion" />
         <item itemvalue="Python tests.pytest for page3_2.Sisia.test02_persona" />
-        <item itemvalue="Python tests.pytest for page3_2.Sisia.test01_datos" />
       </list>
     </recent_temporary>
   </component>
@@ -173,11 +175,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2606" y="166" key="#pytest_for_page3_-_copia.Sisia.test_datos/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599672030703" />
-    <state x="2660" y="279" key="FileChooserDialogImpl" timestamp="1603940332202">
+    <state x="2660" y="279" key="FileChooserDialogImpl" timestamp="1604526637769">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="279" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603940332202" />
-    <state width="1515" height="228" key="GridCell.Tab.0.bottom" timestamp="1604435010162">
+    <state x="2660" y="279" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604526637769" />
+    <state width="1515" height="228" key="GridCell.Tab.0.bottom" timestamp="1604437122853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
@@ -185,8 +187,8 @@
     <state width="1899" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603925164116" />
     <state width="1515" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887398" />
     <state width="1259" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
-    <state width="1515" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604435010162" />
-    <state width="1515" height="228" key="GridCell.Tab.0.center" timestamp="1604435010162">
+    <state width="1515" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
+    <state width="1515" height="228" key="GridCell.Tab.0.center" timestamp="1604437122853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
@@ -194,8 +196,8 @@
     <state width="1899" height="261" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603925164116" />
     <state width="1515" height="263" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
-    <state width="1515" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604435010162" />
-    <state width="1515" height="228" key="GridCell.Tab.0.left" timestamp="1604435010146">
+    <state width="1515" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
+    <state width="1515" height="228" key="GridCell.Tab.0.left" timestamp="1604437122853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847126" />
@@ -203,8 +205,8 @@
     <state width="1899" height="261" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603925164116" />
     <state width="1515" height="263" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
-    <state width="1515" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604435010146" />
-    <state width="1515" height="228" key="GridCell.Tab.0.right" timestamp="1604435010162">
+    <state width="1515" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
+    <state width="1515" height="228" key="GridCell.Tab.0.right" timestamp="1604437122853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
@@ -212,7 +214,7 @@
     <state width="1899" height="261" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603925164116" />
     <state width="1515" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
-    <state width="1515" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604435010162" />
+    <state width="1515" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
     <state x="2383" y="166" key="SettingsEditor" timestamp="1601356215648">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

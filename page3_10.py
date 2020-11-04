@@ -15,17 +15,18 @@ from datetime import timedelta
 import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
-
 #pytest -v -s --html=report10.html --self-contained-html page3_10.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
 
-ren = 1
-excel="C://SISIA//Documentacion//Usuariosv3_10.xlsx"
-casos= 2
+ren = 10
+excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
+casos= 10
 #ruta="https://prod.senasica.gob.mx/sisia/login"
-ruta="http://10.16.3.29:8004/login"
+
+ruta="http://10.16.3.36:8004/login"
+
 
 class Sisia(unittest.TestCase):
 
@@ -34,15 +35,16 @@ class Sisia(unittest.TestCase):
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
         cls.driver.maximize_window()
-        cls.driver.implicitly_wait(15)
+        cls.driver.implicitly_wait(30)
 
     # @unittest.skip("Para pruebas de datos")
     # Primero
     def test01_datos(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(10)
+        f.tiempo(28)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -58,6 +60,7 @@ class Sisia(unittest.TestCase):
             mision = fe.readData(path, "Hoja3", r, 10)
             vision = fe.readData(path, "Hoja3", r, 11)
             fecha = fe.readData(path, "Hoja3", r, 12)
+            #fecha2 = datetime.now() + timedelta(days=fecha)
             fecha2 = datetime.now()
             fecha2 = fecha2.strftime('%d/%m/%Y')
             fecha3 = datetime.now()
@@ -91,18 +94,25 @@ class Sisia(unittest.TestCase):
             f.scrolling(100)
 
             # DATOS IE
-            f.tiempo(5)
+            f.tiempo(3)
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
             f.texto("//textarea[contains(@formcontrolname,'vision')]", vision)
             f.texto("(//input[contains(@formcontrolname,'fecha')])[1]", fecha2)
-            f.combo_texto("(//select[contains(@formcontrolname,'anioRegistro')])[2]", registro)
-            f.texto("(//input[contains(@type,'text')])[7]", telefono)
-            f.texto("(//input[@formcontrolname='rfc'])[2]", rfcc)
-            f.limpiar("(//input[contains(@type,'text')])[9]")
+            #f.combo_texto("(//select[contains(@formcontrolname,'anioRegistro')])[2]", registro)
+            #f.combo_index("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[5]/div/fieldset/select",registro)
+            #cambio
+            f.combo_texto("//select[@ng-reflect-name='anioRegistro']",registro)
+            f.texto("//input[@ng-reflect-name='telefono']", telefono)
+            #cambios
+            f.limpiar("//input[@ng-reflect-name='rfc']")
+            f.texto("//input[@ng-reflect-name='rfc']",rfcc)
+            #cambios
+            #f.texto("(//input[@formcontrolname='rfc'])[2]", rfcc)
+            f.limpiar("//input[@ng-reflect-name='claveAutorizacion']")
             f.tiempo(.5)
-            f.texto("(//input[contains(@type,'text')])[9]", curpp)
+            f.texto("//input[@ng-reflect-name='claveAutorizacion']", curpp)
             f.tiempo(.5)
             f.limpiar("(//input[contains(@maxlength,'80')])[1]")
             f.texto("(//input[contains(@maxlength,'80')])[1]", presidente)
@@ -118,7 +128,7 @@ class Sisia(unittest.TestCase):
                 f.upload("(//input[contains(@type,'file')])[1]", pdf1)
                 f.upload("(//input[contains(@type,'file')])[2]", pdf2)
                 f.upload("(//input[contains(@type,'file')])[3]", pdf3)
-                f.Click("//button[@class='btn btn-primary ng-star-inserted'][contains(.,'Guardar')]")
+                f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[24]/div[3]/div/div[2]/button")
                 f.tiempo(28)
                 f.Click("//button[contains(.,'Ok')]")
                 f.tiempo(2)
@@ -129,8 +139,8 @@ class Sisia(unittest.TestCase):
             print("Valor de R: " + str(r))
             if(r == casos):
                 break
-            #imgpdf = f.existe_try("(//img[@src='assets/img/pdf-img.png'])[1]")
-            if (pdf == "Falso"):
+
+            elif (pdf == "Falso"):
                 f.tiempo(1)
                 f.Click("//button[contains(.,'Guardar cambios')]")
                 f.tiempo(2)
@@ -189,8 +199,9 @@ class Sisia(unittest.TestCase):
             f.scrolling(100)
 
             # Sección personal
-            f.tiempo(6)
-            f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
+            f.tiempo(3)
+            #f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
+            f.Click("//a[contains(.,'Personal')]")
             f.tiempo(6)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
@@ -259,31 +270,36 @@ class Sisia(unittest.TestCase):
 
             # instalacion
             f.scrolling(150)
-            f.tiempo(4)
+            f.tiempo(2)
             f.Click("//a[contains(.,'Instalaciones')]")
-            f.tiempo(4)
+            f.tiempo(2)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
+            f.tiempo(1)
             f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[1]", descripcion)
             f.tiempo(1)
             f.texto("//input[contains(@formcontrolname,'calle')]", calle)
             f.texto("//input[contains(@formcontrolname,'colonia')]", colonia)
             f.texto("//input[@formcontrolname='cp']", cp)
-            f.tiempo(2)
+            driver.implicitly_wait(8)
             f.combo_index("//select[@formcontrolname='estado']", estado)
-            f.tiempo(2)
+            driver.implicitly_wait(8)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
-            f.tiempo(8)
+            driver.implicitly_wait(8)
+            f.tiempo(3)
             f.combo_index("//select[contains(@formcontrolname,'localidad')]", estado)
+            driver.implicitly_wait(8)
+            f.tiempo(8)
             f.scrolling(100)
             f.tiempo(2)
-            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+            #f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
+            f.Click("/html/body/main/app-root/div/div/app-instalaciones-plantillas/div[5]/div/div/div/div/form/div[18]/div[2]/button")
             f.tiempo(2)
             f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
             f.scrolling(700)
             f.tiempo(2)
-            f.Click("(//button[contains(.,'Guardar')])[3]")
+            f.Click("/html/body/main/app-root/div/div/app-instalaciones-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
             f.tiempo(6)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
@@ -327,7 +343,8 @@ class Sisia(unittest.TestCase):
             f.scrolling(100)
             f.tiempo(2)
             #inventario
-            f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
+            #f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
+            f.Click("//a[contains(.,'Inventario Vehicular')]")
             f.tiempo(2)
             f.texto("(//select[contains(@formcontrolname,'anioRegistro')])[1]", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
@@ -344,15 +361,17 @@ class Sisia(unittest.TestCase):
             f.combo_index("(//select[contains(@formcontrolname,'nombreResguardante')])[1]", 1)
             f.texto("//input[@formcontrolname='kilometraje']", kil)
             f.combo_index("//select[contains(@formcontrolname,'proyectoOrigen')]", po)
-            f.Click("//*[@id='tab-02']/div/app-inventario-vehicular/form/div[22]/div/label[1]/input")
+            #f.Click("//*[@id='tab-02']/div/app-inventario-vehicular/form/div[22]/div/label[1]/input")
+            f.Click("(//input[@name='tipoRecurso'])[2]")
             #f.Click("//input[contains(@ng-reflect-value,'1')]")
             f.scrolling(550)
-            f.tiempo(1)
-            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[2]")
+            f.tiempo(2)
+            #f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[2]")
+            f.Click("/html/body/main/app-root/div/div/app-inventario-vehicular-plantillas/div[5]/div/div/div/div/form/div[22]/div[2]/button")
             f.Click("//button[@class='btn btn-default'][contains(.,'Entendido')]")
             f.scrolling(200)
             f.tiempo(1)
-            f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[2]")
+            f.Click("/html/body/main/app-root/div/div/app-inventario-vehicular-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
             f.tiempo(4)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(1)
@@ -390,36 +409,38 @@ class Sisia(unittest.TestCase):
             #f.Click("//a[@href='/recursos-humanos-materiales']")
             f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
             f.scrolling(100)
-            f.tiempo(3)
+            f.tiempo(2)
 
-            f.Click("//a[@data-toggle='tab'][contains(.,'Bien o Servicio')]")
+            f.Click("//a[contains(.,'Bien o Servicio')]")
             f.tiempo(3)
             f.scrolling(120)
-            f.combo_index("(//select[contains(@formcontrolname,'anioRegistro')])[3]", 1)
+            f.combo_index("//select[@ng-reflect-name='anioRegistro']", 1)
+
             f.combo_index("//select[contains(@formcontrolname,'tipoBien')]", tv)
             f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'concepto')]", po)
-            f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[2]", mision)
+            f.texto("//textarea[@ng-reflect-name='descripcion']", mision)
             f.scrolling(100)
-            f.texto("(//input[@formcontrolname='numInventario'])[2]", nf)
-            f.texto("(//input[@formcontrolname='marca'])[2]", marcam)
-            f.texto("(//input[contains(@formcontrolname,'modelo')])[2]", modelom)
+            f.texto("//input[@ng-reflect-name='numInventario']", nf)
+            f.texto("//input[@ng-reflect-name='marca']", marcam)
+            f.texto("//input[@ng-reflect-name='modelo']", modelom)
             f.combo_index("//select[contains(@formcontrolname,'estadoBien')]", tv)
-            f.texto("(//input[@formcontrolname='numSerie'])[2]", ns)
-            f.texto("(//input[contains(@formcontrolname,'numFactura')])[2]", nf)
-            f.texto("(//input[@formcontrolname='valorFactura'])[2]", vf)
-            f.combo_index("(//select[contains(@formcontrolname,'nombreResguardante')])[2]", 1)
-            f.combo_index("//select[contains(@formcontrolname,'ubicacionBien')]", po)
-            f.combo_index("//select[@formcontrolname='proyecto']", po)
+            f.texto("//input[@ng-reflect-name='numSerie']", ns)
+            f.texto("//input[@ng-reflect-name='numFactura']", nf)
+            f.texto("//input[@ng-reflect-name='valorFactura']", vf)
+            f.combo_index("//select[@ng-reflect-name='nombreResguardante']", 1)
+            f.combo_index("//select[@ng-reflect-name='ubicacionBien']", po)
+            f.combo_index("//select[@ng-reflect-name='proyecto']", po)
             f.scrolling(120)
-            f.texto("(//input[@formcontrolname='fecha'])[2]", fecha4)
-            f.Click("(//input[contains(@name,'tipoRecurso')])[2]")
-            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'])[4]")
+            f.texto("//input[@ng-reflect-name='fecha']", fecha4)
+            f.Click("(//input[@formcontrolname='tipoRecurso'])[2]")
+            f.tiempo(2)
+            f.Click("/html/body/main/app-root/div/div/app-bien-servicio-plantillas/div[5]/div/div/div/div/form/div[22]/div[2]/button")
             f.tiempo(1)
             f.Click("(//button[contains(.,'Entendido')])[1]")
             f.scrolling(300)
-            f.Click("(//button[contains(.,'Guardar')])[5]")
-            f.tiempo(15)
+            f.Click("/html/body/main/app-root/div/div/app-bien-servicio-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
+            f.tiempo(2)
             f.scrolling(-1200)
             f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")

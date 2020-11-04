@@ -20,12 +20,12 @@ import string
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
 
-ren = 1
-excel="C://SISIA//Documentacion//Usuariosv3_2.xlsx"
+ren = 2
+excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
 casos= 2
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
-ruta="http://10.16.3.29:8004/login"
+ruta="http://10.16.3.36:8004/login"
 
 
 class Sisia(unittest.TestCase):
@@ -44,7 +44,7 @@ class Sisia(unittest.TestCase):
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(20)
+        f.tiempo(12)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -104,7 +104,7 @@ class Sisia(unittest.TestCase):
             #f.combo_index("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[5]/div/fieldset/select",registro)
             #cambio
             f.combo_texto("//select[@ng-reflect-name='anioRegistro']",registro)
-            f.texto("(//input[contains(@type,'text')])[7]", telefono)
+            f.texto("//input[@ng-reflect-name='telefono']", telefono)
             #cambios
             f.limpiar("//input[@ng-reflect-name='rfc']")
             f.texto("//input[@ng-reflect-name='rfc']",rfcc)
@@ -128,7 +128,7 @@ class Sisia(unittest.TestCase):
                 f.upload("(//input[contains(@type,'file')])[1]", pdf1)
                 f.upload("(//input[contains(@type,'file')])[2]", pdf2)
                 f.upload("(//input[contains(@type,'file')])[3]", pdf3)
-                f.Click("//button[@class='btn btn-primary ng-star-inserted'][contains(.,'Guardar')]")
+                f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[24]/div[3]/div/div[2]/button")
                 f.tiempo(28)
                 f.Click("//button[contains(.,'Ok')]")
                 f.tiempo(2)
