@@ -13,14 +13,26 @@ from selenium.webdriver.support.wait import WebDriverWait
 from datetime import datetime
 from datetime import timedelta
 import string
+
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
 #pytest -v -s --html=report1.html --self-contained-html page3.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
+
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
-#pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py -n 10
+#pytest page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py -n 5
+#pytest page3_11.py page3_12.py page3_13.py page3_14.py page3_15.py -n 5
+#pytest page3_16.py page3_17.py page3_18.py page3_19.py page3_20.py -n 5
+#pytest page3_21.py page3_22.py page3_23.py page3_24.py page3_25.py -n 5
+#pytest page3_26.py page3_27.py page3_28.py page3_29.py page3_30.py -n 5
+#pytest page3_31.py page3_32.py page3_33.py page3_34.py page3_35.py -n 5
+#pytest page3_36.py  page3_37.py  page3_38.py  page3_39.py  page3_40.py -n 5
+#pytest page3_41.py  page3_42.py  page3_43.py  page3_44.py  page3_45.py -n 5
+#pytest page3_46.py  page3_47.py  page3_48.py  page3_49.py  page3_50.py -n 5
+
+
 
 ren = 1
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
@@ -35,9 +47,11 @@ class Sisia(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
         cls.driver.maximize_window()
         cls.driver.implicitly_wait(30)
+
 
     # @unittest.skip("Para pruebas de datos")
     # Primero
