@@ -3,10 +3,94 @@
   <component name="ChangeListManager">
     <list default="true" id="d27eba2f-35db-4751-955d-1dcbedd2afff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ERROR_CORRER.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ERROR_CORRER.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentacion/respaldo_ok.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentacion/respaldo_ok.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page3.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_11.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_12.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_12.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_13.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_13.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_14.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_14.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_15.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_15.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_16.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_16.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_17.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_17.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_18.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_18.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_19.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_19.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page3_20.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_20.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_21.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_22.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_23.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_24.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_25.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_26.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_27.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_28.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_29.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_2_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_30.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_31.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_32.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_33.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_34.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_35.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_36.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_37.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_38.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_39.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_40.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_41.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_42.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_43.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_44.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_45.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_46.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_47.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_48.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_49.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_50.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_7.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page3_9.py" beforeDir="false" afterPath="$PROJECT_DIR$/page3_9.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repor1t.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report1.html" beforeDir="false" afterPath="$PROJECT_DIR$/report1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report14.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report2.html" beforeDir="false" afterPath="$PROJECT_DIR$/report2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report3.html" beforeDir="false" afterPath="$PROJECT_DIR$/report3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report4.html" beforeDir="false" afterPath="$PROJECT_DIR$/report4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report5.html" beforeDir="false" afterPath="$PROJECT_DIR$/report5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report6.html" beforeDir="false" afterPath="$PROJECT_DIR$/report6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test14.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test15.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test16.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test17.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test18.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test19.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test20.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test9.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +128,8 @@
       <recent name="C:\SISIA" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for page3.Sisia.test04_inventario">
-    <configuration name="pytest for page3_2.Sisia.test03_instalacion" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.pytest for page3_1.Sisia.test04_inventario">
+    <configuration name="pytest for page3_1.Sisia.test01_datos" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -56,11 +140,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page3_2.Sisia.test03_instalacion&quot;" />
+      <option name="_new_target" value="&quot;page3_1.Sisia.test01_datos&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page3_2.Sisia.test04_inventario" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for page3_1.Sisia.test02_persona" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,11 +155,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page3_2.Sisia.test04_inventario&quot;" />
+      <option name="_new_target" value="&quot;page3_1.Sisia.test02_persona&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page3_2.Sisia.test05_bien" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for page3_1.Sisia.test03_instalacion" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="SISIA" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,7 +170,22 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page3_2.Sisia.test05_bien&quot;" />
+      <option name="_new_target" value="&quot;page3_1.Sisia.test03_instalacion&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for page3_1.Sisia.test04_inventario" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="SISIA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;page3_1.Sisia.test04_inventario&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -105,28 +204,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for page3.Sisia.test04_inventario" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="SISIA" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;page3.Sisia.test04_inventario&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for page3.Sisia.test04_inventario" />
+        <item itemvalue="Python tests.pytest for page3_1.Sisia.test04_inventario" />
+        <item itemvalue="Python tests.pytest for page3_1.Sisia.test03_instalacion" />
+        <item itemvalue="Python tests.pytest for page3_1.Sisia.test02_persona" />
+        <item itemvalue="Python tests.pytest for page3_1.Sisia.test01_datos" />
         <item itemvalue="Python tests.pytest for page3.Sisia.test01_datos" />
-        <item itemvalue="Python tests.pytest for page3_2.Sisia.test05_bien" />
-        <item itemvalue="Python tests.pytest for page3_2.Sisia.test04_inventario" />
-        <item itemvalue="Python tests.pytest for page3_2.Sisia.test03_instalacion" />
       </list>
     </recent_temporary>
   </component>
@@ -148,43 +232,43 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2606" y="166" key="#pytest_for_page3_-_copia.Sisia.test_datos/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599672030703" />
-    <state x="2660" y="279" key="FileChooserDialogImpl" timestamp="1604608369759">
+    <state x="2660" y="279" key="FileChooserDialogImpl" timestamp="1605738431809">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="279" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604608369759" />
-    <state width="1899" height="261" key="GridCell.Tab.0.bottom" timestamp="1604534264132">
+    <state x="2660" y="279" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605738431809" />
+    <state width="1899" height="304" key="GridCell.Tab.0.bottom" timestamp="1606180756201">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
     <state width="1899" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1600815517668" />
-    <state width="1899" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604534264132" />
+    <state width="1899" height="304" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606180756201" />
     <state width="1515" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887398" />
     <state width="1259" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
     <state width="1515" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
-    <state width="1899" height="261" key="GridCell.Tab.0.center" timestamp="1604534264132">
+    <state width="1899" height="304" key="GridCell.Tab.0.center" timestamp="1606180756201">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
     <state width="1899" height="243" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1600815517668" />
-    <state width="1899" height="261" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604534264132" />
+    <state width="1899" height="304" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606180756201" />
     <state width="1515" height="263" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
     <state width="1515" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
-    <state width="1899" height="261" key="GridCell.Tab.0.left" timestamp="1604534264132">
+    <state width="1899" height="304" key="GridCell.Tab.0.left" timestamp="1606180756201">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847126" />
     <state width="1899" height="243" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1600815517668" />
-    <state width="1899" height="261" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604534264132" />
+    <state width="1899" height="304" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606180756201" />
     <state width="1515" height="263" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
     <state width="1515" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />
-    <state width="1899" height="261" key="GridCell.Tab.0.right" timestamp="1604534264132">
+    <state width="1899" height="304" key="GridCell.Tab.0.right" timestamp="1606180756201">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1259" height="286" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.984@1920.0.1280.984" timestamp="1600891847127" />
     <state width="1899" height="243" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1600815517668" />
-    <state width="1899" height="261" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604534264132" />
+    <state width="1899" height="304" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606180756201" />
     <state width="1515" height="263" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@0.0.1536.824" timestamp="1597943887397" />
     <state width="1259" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.48.1280.984@1920.48.1280.984" timestamp="1598058345629" />
     <state width="1515" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604437122853" />

@@ -13,19 +13,36 @@ from selenium.webdriver.support.wait import WebDriverWait
 from datetime import datetime
 from datetime import timedelta
 import string
+
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
-#pytest -v -s --html=report3.html --self-contained-html page3_3.py
+
+#pytest -v -s --html=report1.html --self-contained-html page3_1.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
+
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
+#pytest page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py -n 5
+#pytest page3_11.py page3_12.py page3_13.py page3_14.py page3_15.py -n 5
+#pytest page3_16.py page3_17.py page3_18.py page3_19.py page3_20.py -n 5
+#pytest page3_21.py page3_22.py page3_23.py page3_24.py page3_25.py -n 5
+#pytest page3_26.py page3_27.py page3_28.py page3_29.py page3_30.py -n 5
+#pytest page3_31.py page3_32.py page3_33.py page3_34.py page3_35.py -n 5
+#pytest page3_36.py  page3_37.py  page3_38.py  page3_39.py  page3_40.py -n 5
+#pytest page3_41.py  page3_42.py  page3_43.py  page3_44.py  page3_45.py -n 5
+#pytest page3_46.py  page3_47.py  page3_48.py  page3_49.py  page3_50.py -n 5
+
+
 
 ren = 3
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
 casos= 3
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
-ruta="http://10.16.3.36:8004/login"
+#ruta="http://10.16.3.36:8004/login"
+
+#Produccion.
+ruta="https://prod.senasica.gob.mx/sisia/login"
 
 
 class Sisia(unittest.TestCase):
@@ -33,9 +50,11 @@ class Sisia(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
         cls.driver.maximize_window()
         cls.driver.implicitly_wait(30)
+
 
     # @unittest.skip("Para pruebas de datos")
     # Primero
@@ -44,7 +63,7 @@ class Sisia(unittest.TestCase):
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(14)
+        f.tiempo(10)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -90,30 +109,30 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            #f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+
 
             # DATOS IE
-            f.tiempo(3)
+            f.tiempo(1)
+            f.Click_menus("//a[contains(.,'Datos IE')]")
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
             f.texto("//textarea[contains(@formcontrolname,'vision')]", vision)
-            f.texto("(//input[contains(@formcontrolname,'fecha')])[1]", fecha2)
-            #f.combo_texto("(//select[contains(@formcontrolname,'anioRegistro')])[2]", registro)
-            #f.combo_index("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[5]/div/fieldset/select",registro)
-            #cambio
-            f.combo_texto("//select[@ng-reflect-name='anioRegistro']",registro)
-            f.texto("//input[@ng-reflect-name='telefono']", telefono)
+            f.limpiar("//input[contains(@formcontrolname,'fecha')]")
+            f.tiempo(1)
+            f.texto("//input[contains(@formcontrolname,'fecha')]", fecha2)
+            f.localizar_elemento_xpath("//select[contains(@formcontrolname,'anioRegistro')]")
+            f.combo_texto("//select[contains(@formcontrolname,'anioRegistro')]",registro)
+            f.localizar_elemento_xpath("//input[@formcontrolname='telefono']")
+            f.texto("//input[@formcontrolname='telefono']", telefono)
             #cambios
-            f.limpiar("//input[@ng-reflect-name='rfc']")
-            f.texto("//input[@ng-reflect-name='rfc']",rfcc)
-            #cambios
-            #f.texto("(//input[@formcontrolname='rfc'])[2]", rfcc)
-            f.limpiar("//input[@ng-reflect-name='claveAutorizacion']")
-            f.tiempo(.5)
-            f.texto("//input[@ng-reflect-name='claveAutorizacion']", curpp)
-            f.tiempo(.5)
+            f.localizar_elemento_xpath_limpiar("//input[contains(@formcontrolname,'rfc')]")
+            f.texto("//input[contains(@formcontrolname,'rfc')]",rfcc)
+            f.localizar_elemento_xpath_limpiar("//input[@formcontrolname='claveAutorizacion']")
+            f.texto("//input[@formcontrolname='claveAutorizacion']", curpp)
+            f.tiempo(1)
             f.limpiar("(//input[contains(@maxlength,'80')])[1]")
             f.texto("(//input[contains(@maxlength,'80')])[1]", presidente)
             f.limpiar("(//input[contains(@maxlength,'80')])[2]")
@@ -125,9 +144,11 @@ class Sisia(unittest.TestCase):
             pdf = f.existe_try("(//input[contains(@type,'file')])[1]")
             print(pdf)
             if (pdf == "Existe"):
+                f.localizar_elemento_xpath("(//input[contains(@type,'file')])[1]")
                 f.upload("(//input[contains(@type,'file')])[1]", pdf1)
                 f.upload("(//input[contains(@type,'file')])[2]", pdf2)
                 f.upload("(//input[contains(@type,'file')])[3]", pdf3)
+                f.tiempo(2)
                 f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/form/div[24]/div[3]/div/div[2]/button")
                 f.tiempo(28)
                 f.Click("//button[contains(.,'Ok')]")
@@ -143,7 +164,7 @@ class Sisia(unittest.TestCase):
             elif (pdf == "Falso"):
                 f.tiempo(1)
                 f.Click("//button[contains(.,'Guardar cambios')]")
-                f.tiempo(2)
+                f.tiempo(3)
                 f.Click("//button[contains(.,'Ok')]")
                 f.scrolling(-1200)
                 f.tiempo(1)
@@ -159,6 +180,7 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para pruebas de personas")
     def test02_persona(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -195,14 +217,13 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # Sección personal
-            f.tiempo(3)
+            f.tiempo(1)
             #f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
-            f.Click("//a[contains(.,'Personal')]")
-            f.tiempo(6)
+            f.Click_menus("//a[contains(.,'Personal')]")
+            f.tiempo(3)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
             f.texto("//input[@formcontrolname='paterno']", ap)
@@ -242,6 +263,7 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para instalaciones")
     def test03_instalacion(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -265,14 +287,11 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # instalacion
-            f.scrolling(150)
-            f.tiempo(2)
-            f.Click("//a[contains(.,'Instalaciones')]")
-            f.tiempo(2)
+            f.Click_menus("//a[contains(.,'Instalaciones')]")
+            f.tiempo(4)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
@@ -309,6 +328,7 @@ class Sisia(unittest.TestCase):
 
     #ok listo
     def test04_inventario(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -339,14 +359,12 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
-            f.tiempo(2)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
             #inventario
             #f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
-            f.Click("//a[contains(.,'Inventario Vehicular')]")
-            f.tiempo(2)
-            f.texto("(//select[contains(@formcontrolname,'anioRegistro')])[1]", ano)
+            f.Click_menus("//a[contains(.,'Inventario Vehicular')]")
+            f.tiempo(4)
+            f.combo_texto("//select[@formcontrolname='anioRegistro']", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
             f.combo_index("//select[contains(@formcontrolname,'tipoVehiculo')]", tv)
             f.texto("(//input[contains(@formcontrolname,'marca')])[1]", marcam)
@@ -381,6 +399,7 @@ class Sisia(unittest.TestCase):
 
 
     def test05_bien(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -407,32 +426,28 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
-            f.tiempo(2)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
-            f.Click("//a[contains(.,'Bien o Servicio')]")
+            f.Click_menus("//a[contains(.,'Bien o Servicio')]")
             f.tiempo(3)
             f.scrolling(120)
-            f.combo_index("//select[@ng-reflect-name='anioRegistro']", 1)
+            f.combo_index("//select[contains(@formcontrolname,'anioRegistro')]", 1)
 
             f.combo_index("//select[contains(@formcontrolname,'tipoBien')]", tv)
             f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'concepto')]", po)
-            f.texto("//textarea[@ng-reflect-name='descripcion']", mision)
-            f.scrolling(100)
-            f.texto("//input[@ng-reflect-name='numInventario']", nf)
-            f.texto("//input[@ng-reflect-name='marca']", marcam)
-            f.texto("//input[@ng-reflect-name='modelo']", modelom)
+            f.texto("//textarea[@formcontrolname='descripcion']", mision)
+            f.texto("//input[contains(@formcontrolname,'numInventario')]", nf)
+            f.texto("//input[contains(@formcontrolname,'marca')]", marcam)
+            f.texto("//input[contains(@formcontrolname,'modelo')]", modelom)
             f.combo_index("//select[contains(@formcontrolname,'estadoBien')]", tv)
-            f.texto("//input[@ng-reflect-name='numSerie']", ns)
-            f.texto("//input[@ng-reflect-name='numFactura']", nf)
-            f.texto("//input[@ng-reflect-name='valorFactura']", vf)
-            f.combo_index("//select[@ng-reflect-name='nombreResguardante']", 1)
-            f.combo_index("//select[@ng-reflect-name='ubicacionBien']", po)
-            f.combo_index("//select[@ng-reflect-name='proyecto']", po)
-            f.scrolling(120)
-            f.texto("//input[@ng-reflect-name='fecha']", fecha4)
+            f.texto("//input[contains(@formcontrolname,'numSerie')]", ns)
+            f.texto("//input[contains(@formcontrolname,'numFactura')]", vf)
+            f.texto("//input[contains(@formcontrolname,'valorFactura')]", "30000")
+            f.combo_index("//select[contains(@formcontrolname,'nombreResguardante')]", 1)
+            f.combo_index("//select[contains(@formcontrolname,'ubicacionBien')]", po)
+            f.combo_index("//select[contains(@formcontrolname,'proyecto')]", po)
+            f.texto("//input[contains(@formcontrolname,'fecha')]", fecha4)
             f.Click("(//input[@formcontrolname='tipoRecurso'])[2]")
             f.tiempo(2)
             f.Click("/html/body/main/app-root/div/div/app-bien-servicio-plantillas/div[5]/div/div/div/div/form/div[22]/div[2]/button")

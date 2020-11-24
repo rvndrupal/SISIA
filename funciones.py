@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class Funciones():
@@ -23,15 +24,34 @@ class Funciones():
         self.driver.find_element_by_xpath(self.button).click()
 
     def texto(self, xpath, texto):
-        r = random.randint(1, 1000)
+        #r = random.randint(1, 1000)
+        t = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        time.sleep(1)
+        t = self.driver.find_element_by_xpath(xpath).clear()
         t = self.driver.find_element_by_xpath(xpath).send_keys(texto)
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
         return t
 
     def Click(self, xpath):
-        r = random.randint(1, 10000)
+        #r = random.randint(1, 10000)
+        e = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(e).perform()
+        time.sleep(1)
         e = self.driver.find_element_by_xpath(xpath).click()
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
+        return e
+
+    def Click_menus(self, xpath):
+        #r = random.randint(1, 10000)
+        e = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(e).perform()
+        time.sleep(2.5)
+        e = self.driver.find_element_by_xpath(xpath).click()
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
         return e
 
     def combo_texto(self, xpath, texto):
@@ -165,6 +185,48 @@ class Funciones():
         ct = self.driver.find_elements_by_xpath(xpath)
         ct=len(ct)
         return ct
+
+    def localizar_elemento_id_limpiar(self, id):
+        val = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        val = self.driver.find_element_by_xpath(id).clear()
+        return val
+
+    def localizar_elemento_id(self, id):
+        val = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        time.sleep(1.5)
+        return val
+
+    def localizar_elemento_xpath(self, xpath):
+        val = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        time.sleep(1)
+        return val
+
+    def localizar_elemento_xpath_limpiar(self, xpath):
+        val = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        val = self.driver.find_element_by_xpath(xpath).clear()
+        return val
+
+    def localizar_elemento_css_limpiar(self, css):
+        val = self.driver.find_element_by_class_name(css)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        val = self.driver.find_element_by_xpath(css).clear()
+        return val
+
+    def localizar_elemento_css(self, css):
+        val = self.driver.find_element_by_class_name(css)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(val).perform()
+        time.sleep(1)
+        return val
 
 
 
