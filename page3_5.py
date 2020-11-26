@@ -17,7 +17,7 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest -v -s --html=report1.html --self-contained-html page3.py
+#pytest -v -s --html=report1.html --self-contained-html page3_1.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 
@@ -109,11 +109,13 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            #f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+
 
             # DATOS IE
-            f.tiempo(3)
+            f.tiempo(1)
+            f.Click_menus("//a[contains(.,'Datos IE')]")
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
@@ -178,6 +180,7 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para pruebas de personas")
     def test02_persona(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -214,14 +217,13 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # Sección personal
-            f.tiempo(3)
+            f.tiempo(1)
             #f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
-            f.Click("//a[contains(.,'Personal')]")
-            f.tiempo(6)
+            f.Click_menus("//a[contains(.,'Personal')]")
+            f.tiempo(3)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
             f.texto("//input[@formcontrolname='paterno']", ap)
@@ -261,6 +263,7 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para instalaciones")
     def test03_instalacion(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -284,14 +287,11 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # instalacion
-            f.scrolling(150)
-            f.tiempo(2)
-            f.Click("//a[contains(.,'Instalaciones')]")
-            f.tiempo(2)
+            f.Click_menus("//a[contains(.,'Instalaciones')]")
+            f.tiempo(4)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
@@ -328,6 +328,7 @@ class Sisia(unittest.TestCase):
 
     #ok listo
     def test04_inventario(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -358,13 +359,11 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
-            f.tiempo(2)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
             #inventario
             #f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
-            f.Click("//a[contains(.,'Inventario Vehicular')]")
-            f.tiempo(2)
+            f.Click_menus("//a[contains(.,'Inventario Vehicular')]")
+            f.tiempo(4)
             f.combo_texto("//select[@formcontrolname='anioRegistro']", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
             f.combo_index("//select[contains(@formcontrolname,'tipoVehiculo')]", tv)
@@ -400,6 +399,7 @@ class Sisia(unittest.TestCase):
 
 
     def test05_bien(self):
+        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
@@ -426,11 +426,9 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.scrolling(100)
-            f.tiempo(2)
+            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
-            f.Click("//a[contains(.,'Bien o Servicio')]")
+            f.Click_menus("//a[contains(.,'Bien o Servicio')]")
             f.tiempo(3)
             f.scrolling(120)
             f.combo_index("//select[contains(@formcontrolname,'anioRegistro')]", 1)

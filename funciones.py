@@ -24,7 +24,7 @@ class Funciones():
         self.driver.find_element_by_xpath(self.button).click()
 
     def texto(self, xpath, texto):
-        #r = random.randint(1, 1000)
+        ##r = random.randint(1, 1000)
         t = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
@@ -39,39 +39,40 @@ class Funciones():
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        time.sleep(1)
         e = self.driver.find_element_by_xpath(xpath).click()
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
         return e
 
     def Click_menus(self, xpath):
-        #r = random.randint(1, 10000)
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        time.sleep(2.5)
+        time.sleep(2)
+        e = self.driver.find_element_by_xpath(xpath)
         e = self.driver.find_element_by_xpath(xpath).click()
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
         return e
 
     def combo_texto(self, xpath, texto):
-        r = random.randint(1, 1000)
+        ct = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(ct).perform()
+        time.sleep(1.5)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_visible_text(texto)
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Combo_texto" + str(r) + ".png")
         return ct
 
     def combo_index(self, xpath, index):
-        r = random.randint(1, 1000)
+        #r = random.randint(1, 1000)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_index(index)
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Combo_index" + str(r) + ".png")
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return ct
 
     def check(self, xpath):
-        r = random.randint(1, 1000)
+        #r = random.randint(1, 1000)
         ck = self.driver.find_element_by_xpath(xpath).click()
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return ck
 
     def tiempo(self, tiempo):
@@ -79,9 +80,9 @@ class Funciones():
         return t
 
     def upload(self, xpath, ruta):
-        r = random.randint(1, 1000)
+        #r = random.randint(1, 1000)
         up = self.driver.find_element_by_xpath(xpath).send_keys(ruta)
-        self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Upload" + str(r) + ".png")
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return up
 
     def Validar_Elemento(self, id):

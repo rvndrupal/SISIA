@@ -17,7 +17,7 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest -v -s --html=report1.html --self-contained-html page3_1.py
+#pytest -v -s --html=report1.html --self-contained-html page3.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 
@@ -34,15 +34,15 @@ import string
 
 
 
-ren = 3
+ren = 4
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 3
+casos= 4
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
-#ruta="http://10.16.3.36:8004/login"
+ruta="http://10.16.3.36:8004/login"
 
 #Produccion.
-ruta="https://prod.senasica.gob.mx/sisia/login"
+#ruta="https://prod.senasica.gob.mx/sisia/login"
 
 
 class Sisia(unittest.TestCase):
@@ -63,7 +63,7 @@ class Sisia(unittest.TestCase):
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(5)
+        f.tiempo(10)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -109,14 +109,11 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            #f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
-            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
-
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.scrolling(100)
 
             # DATOS IE
-            f.tiempo(1)
-            #f.Click_menus("//a[contains(.,'Datos IE')]")
-            f.Click_menus("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/app-tabs-manager-plantillas/ul/li[1]/a")
+            f.tiempo(3)
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
@@ -154,7 +151,7 @@ class Sisia(unittest.TestCase):
                 f.tiempo(28)
                 f.Click("//button[contains(.,'Ok')]")
                 f.tiempo(2)
-                f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
+                f.scrolling(-1200)
                 f.tiempo(1)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(1)
@@ -167,7 +164,7 @@ class Sisia(unittest.TestCase):
                 f.Click("//button[contains(.,'Guardar cambios')]")
                 f.tiempo(3)
                 f.Click("//button[contains(.,'Ok')]")
-                f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
+                f.scrolling(-1200)
                 f.tiempo(1)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(1)
@@ -181,12 +178,10 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para pruebas de personas")
     def test02_persona(self):
-        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(2)
         path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
@@ -219,11 +214,14 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.scrolling(100)
 
             # Sección personal
-            f.Click_menus("//a[contains(.,'Personal')]")
-            f.tiempo(1)
+            f.tiempo(3)
+            #f.Click("//a[@data-toggle='tab'][contains(.,'Personal')]")
+            f.Click("//a[contains(.,'Personal')]")
+            f.tiempo(6)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
             f.texto("//input[@formcontrolname='paterno']", ap)
@@ -246,7 +244,7 @@ class Sisia(unittest.TestCase):
                 f.tiempo(1)
                 f.Click("(//button[@class='btn btn-primary'][contains(.,'Guardar')])[1]")
                 f.tiempo(12)
-                f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
+                f.scrolling(-1200)
                 f.tiempo(1)
                 f.Click("//a[contains(.,'Salir')]")
                 f.tiempo(1)
@@ -263,12 +261,10 @@ class Sisia(unittest.TestCase):
     #ok listo
     #@unittest.skip("Para instalaciones")
     def test03_instalacion(self):
-        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(5)
         path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
@@ -288,13 +284,14 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.scrolling(100)
 
             # instalacion
-            f.tiempo(1)
-            #f.Click_menus("//a[contains(.,'Instalaciones')]")
-            f.Click_menus("//a[contains(.,'Instalaciones')]")
-            f.tiempo(1)
+            f.scrolling(150)
+            f.tiempo(2)
+            f.Click("//a[contains(.,'Instalaciones')]")
+            f.tiempo(2)
             f.scrolling(400)
             f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
@@ -305,16 +302,14 @@ class Sisia(unittest.TestCase):
             f.texto("//input[contains(@formcontrolname,'colonia')]", colonia)
             f.texto("//input[@formcontrolname='cp']", cp)
             driver.implicitly_wait(8)
-            f.tiempo(2)
             f.combo_index("//select[@formcontrolname='estado']", estado)
             driver.implicitly_wait(8)
-            f.tiempo(2)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
             driver.implicitly_wait(8)
-            f.tiempo(2)
+            f.tiempo(3)
             f.combo_index("//select[contains(@formcontrolname,'localidad')]", estado)
             driver.implicitly_wait(8)
-            f.tiempo(6)
+            f.tiempo(8)
             f.scrolling(100)
             f.tiempo(2)
             #f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[3]")
@@ -325,7 +320,6 @@ class Sisia(unittest.TestCase):
             f.tiempo(2)
             f.Click("/html/body/main/app-root/div/div/app-instalaciones-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
             f.tiempo(6)
-            f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(2)
             if (r == casos):
@@ -334,12 +328,10 @@ class Sisia(unittest.TestCase):
 
     #ok listo
     def test04_inventario(self):
-        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(5)
         path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
@@ -366,9 +358,12 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.scrolling(100)
+            f.tiempo(2)
             #inventario
-            f.Click_menus("//a[contains(.,'Inventario Vehicular')]")
+            #f.Click("//a[@data-toggle='tab'][contains(.,'Inventario Vehicular')]")
+            f.Click("//a[contains(.,'Inventario Vehicular')]")
             f.tiempo(2)
             f.combo_texto("//select[@formcontrolname='anioRegistro']", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
@@ -397,8 +392,6 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("/html/body/main/app-root/div/div/app-inventario-vehicular-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
             f.tiempo(4)
-            f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
-            f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(1)
             if (r == casos):
@@ -407,12 +400,10 @@ class Sisia(unittest.TestCase):
 
 
     def test05_bien(self):
-        self.driver.implicitly_wait(30)
         driver = self.driver
         driver.get(ruta)
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(5)
         path = excel
         hoja = "Hoja3"
         rows = fe.getRowCount(path, hoja)
@@ -435,10 +426,11 @@ class Sisia(unittest.TestCase):
             f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
-            f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+            f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
+            f.scrolling(100)
+            f.tiempo(2)
 
-            #f.Click_menus("//a[contains(.,'Bien o Servicio')]")
-            f.Click_menus("//a[contains(.,'Bien o Servicio')]")
+            f.Click("//a[contains(.,'Bien o Servicio')]")
             f.tiempo(3)
             f.scrolling(120)
             f.combo_index("//select[contains(@formcontrolname,'anioRegistro')]", 1)
@@ -466,7 +458,7 @@ class Sisia(unittest.TestCase):
             f.scrolling(300)
             f.Click("/html/body/main/app-root/div/div/app-bien-servicio-plantillas/div[5]/div/div/div/div/div[2]/div[3]/div/div[2]/button")
             f.tiempo(2)
-            f.localizar_elemento_xpath("//a[@class='pull-right'][contains(.,'Salir')]")
+            f.scrolling(-1200)
             f.tiempo(1)
             f.Click("//a[contains(.,'Salir')]")
             f.tiempo(1)
@@ -490,10 +482,6 @@ class Sisia(unittest.TestCase):
 if  __name__ == '__main__':
     unittest.main()
     #unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="Resultados Test"))
-
-
-
-
 
 
 
