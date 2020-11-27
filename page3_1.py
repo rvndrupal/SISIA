@@ -19,6 +19,8 @@ import string
 
 #pytest -v -s --html=report1.html --self-contained-html page3_1.py
 
+#pytest page3_1.py -v --junitxml="page3_1.xml"
+
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py -n 5
@@ -34,9 +36,9 @@ import string
 
 
 
-ren = 16
+ren = 5
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 16
+casos= 5
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
 #ruta="http://10.16.3.36:8004/login"
@@ -53,6 +55,9 @@ class Sisia(unittest.TestCase):
 
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
         cls.driver.maximize_window()
+        driver = cls.driver
+        f = Funciones(driver)
+        f.tiempo(2)
         cls.driver.implicitly_wait(30)
 
 
@@ -63,7 +68,7 @@ class Sisia(unittest.TestCase):
         driver = self.driver
         f = Funciones(driver)
         fe = Funexcel(driver)
-        f.tiempo(5)
+        f.tiempo(2)
         #driver.get("http://10.16.3.29:8004/login")
         # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
@@ -106,7 +111,8 @@ class Sisia(unittest.TestCase):
             # Login
             f.texto("//input[contains(@id,'username')]", user)
             f.texto("//input[contains(@id,'password')]", passw)
-            f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            #f.Click("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
+            f.Enter("//button[@class='btn btn-primary pull-right'][contains(.,'Iniciar sesión')]")
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
             #f.Click("//*[@id='menuSisia']/ul/li[2]/ul/li[1]/a")
@@ -114,9 +120,11 @@ class Sisia(unittest.TestCase):
 
 
             # DATOS IE
-            f.tiempo(1)
-            #f.Click_menus("//a[contains(.,'Datos IE')]")
-            f.Click_menus("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/app-tabs-manager-plantillas/ul/li[1]/a")
+            f.Click("//a[contains(.,'Personal')]")
+            f.tiempo(2)
+            f.Click("//a[contains(.,'Datos IE')]")
+            f.tiempo(2)
+            #f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/app-tabs-manager-plantillas/ul/li[1]/a")
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
             f.limpiar("//textarea[contains(@formcontrolname,'vision')]")
@@ -222,7 +230,9 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # Sección personal
-            f.Click_menus("//a[contains(.,'Personal')]")
+            f.localizar_elemento_xpath("//a[contains(.,'Personal')]")
+            f.tiempo(6)
+            f.Click("//a[contains(.,'Personal')]")
             f.tiempo(1)
             f.scrolling(300)
             f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
@@ -291,9 +301,10 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
             # instalacion
-            f.tiempo(1)
-            #f.Click_menus("//a[contains(.,'Instalaciones')]")
-            f.Click_menus("//a[contains(.,'Instalaciones')]")
+            f.localizar_elemento_xpath("//a[contains(.,'Instalaciones')]")
+            f.tiempo(6)
+            #f.Click("//a[contains(.,'Instalaciones')]")
+            f.Click("//a[contains(.,'Instalaciones')]")
             f.tiempo(1)
             f.scrolling(400)
             print(instalacion)
@@ -369,7 +380,9 @@ class Sisia(unittest.TestCase):
             #f.Click("//a[@href='/recursos-humanos-materiales']")
             f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
             #inventario
-            f.Click_menus("//a[contains(.,'Inventario Vehicular')]")
+            f.localizar_elemento_xpath("//a[contains(.,'Inventario Vehicular')]")
+            f.tiempo(6)
+            f.Click("//a[contains(.,'Inventario Vehicular')]")
             f.tiempo(2)
             f.combo_texto("//select[@formcontrolname='anioRegistro']", ano)
             f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
@@ -438,9 +451,11 @@ class Sisia(unittest.TestCase):
             #f.Click("//a[@href='/recursos-humanos-materiales']")
             f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
 
-            #f.Click_menus("//a[contains(.,'Bien o Servicio')]")
-            f.Click_menus("//a[contains(.,'Bien o Servicio')]")
-            f.tiempo(3)
+            #f.Click("//a[contains(.,'Bien o Servicio')]")
+            f.localizar_elemento_xpath("//a[contains(.,'Bien o Servicio')]")
+            f.tiempo(6)
+            f.Click("//a[contains(.,'Bien o Servicio')]")
+            f.tiempo(2)
             f.scrolling(120)
             f.combo_index("//select[contains(@formcontrolname,'anioRegistro')]", 1)
 

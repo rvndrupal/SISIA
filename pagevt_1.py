@@ -304,6 +304,7 @@ class Sisia(unittest.TestCase):
             driver.implicitly_wait(8)
             f.combo_index("//select[@formcontrolname='estado']", estado)
             driver.implicitly_wait(8)
+            f.tiempo(6)
             f.combo_index("//select[contains(@formcontrolname,'municipio')]", 3)
             driver.implicitly_wait(8)
             f.tiempo(3)

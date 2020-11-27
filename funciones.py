@@ -33,15 +33,51 @@ class Funciones():
         t = self.driver.find_element_by_xpath(xpath).send_keys(texto)
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
         return t
-
+    '''
     def Click(self, xpath):
         #r = random.randint(1, 10000)
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
+        time.sleep(1)
         e = self.driver.find_element_by_xpath(xpath).click()
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
         return e
+   
+
+    def Click(self, xpath):
+        try:
+            esp = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+            esp = self.driver.find_element_by_xpath(xpath).click()
+            v="CLICK OK"
+        except NoSuchElementException:
+            v="NO SE PUDO HACER CLICK"
+        return esp
+    '''
+
+    def Click(self, xpath):
+        e = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(e).perform()
+        time.sleep(.5)
+        e = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        e = self.driver.find_element_by_xpath(xpath).click()
+        return e
+
+    def Click_css(self, css):
+        e = self.driver.find_element_by_css_selector(css).click()
+        return e
+
+    def Enter(self, xpath):
+        '''
+        ct = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(ct).perform()
+        time.sleep(1)
+        '''
+        ct = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        cte = self.driver.find_element_by_xpath(xpath).send_keys(Keys.ENTER)
+        return ct
 
     def Click_menus(self, xpath):
         e = self.driver.find_element_by_xpath(xpath)
@@ -66,6 +102,7 @@ class Funciones():
         #r = random.randint(1, 1000)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_index(index)
+        time.sleep(3)
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return ct
 
@@ -206,6 +243,7 @@ class Funciones():
         actions = ActionChains(self.driver)
         actions.move_to_element(val).perform()
         time.sleep(1)
+        print("Localizado")
         return val
 
     def localizar_elemento_xpath_limpiar(self, xpath):
