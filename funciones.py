@@ -31,6 +31,7 @@ class Funciones():
         time.sleep(1)
         t = self.driver.find_element_by_xpath(xpath).clear()
         t = self.driver.find_element_by_xpath(xpath).send_keys(texto)
+        print("Campo: "+str(xpath)+"--> Dato: "+str(texto))
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
         return t
     '''
@@ -60,9 +61,42 @@ class Funciones():
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
         time.sleep(.5)
-        e = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
-        e = self.driver.find_element_by_xpath(xpath).click()
-        return e
+        print("Boton nom: "+ str(xpath))
+        time.sleep(1)
+        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        time.sleep(1)
+        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
+        try:
+            elemento = self.driver.find_element_by_xpath(xpath).click()
+            #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.RETURN)
+            print("Boton Presionado Ok: "+str(xpath))
+            return e
+        except NoSuchElementException:
+            print("Boton Fallo: " + str(xpath))
+
+    def Click_oculto(self, xpath):
+        e = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(e).perform()
+        time.sleep(.5)
+        print("Boton nom: "+ str(xpath))
+        time.sleep(1)
+        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        time.sleep(1)
+        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
+        try:
+            action = ActionChains(self.driver)
+            action.move_to_element(elemento).click().perform()
+            #elemento = self.driver.find_element_by_xpath(xpath).click()
+            #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.ENTER)
+            print("Boton Presionado Ok: "+str(xpath))
+            return e
+        except NoSuchElementException:
+            print("Boton Fallo: " + str(xpath))
+
+
 
     def Click_css(self, css):
         e = self.driver.find_element_by_css_selector(css).click()

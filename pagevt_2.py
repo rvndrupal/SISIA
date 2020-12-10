@@ -17,7 +17,7 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest -v -s --html=report1.html --self-contained-html page3.py
+#pytest -v -s --html=reportvt_2.html --self-contained-html pagevt_2.py
 
 #pytest page3.py  page3_2.py  page3_3.py  page3_4.py  page3_5.py  page3_6.py page3_7.py page3_8.py page3_9.py page3_10.py page3_11.py page3_12.py page3_13.py page3_14.py -n 14
 

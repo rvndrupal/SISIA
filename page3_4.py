@@ -17,7 +17,7 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest -v -s --html=report1.html --self-contained-html page3_1.py
+#pytest -v -s --html=report4.html --self-contained-html page3_4.py
 
 #pytest page3_1.py -v --junitxml="page3_1.xml"
 
@@ -36,9 +36,9 @@ import string
 
 
 
-ren = 7
+ren = 22
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 7
+casos= 22
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
 #ruta="http://10.16.3.36:8004/login"
@@ -120,8 +120,8 @@ class Sisia(unittest.TestCase):
 
 
             # DATOS IE
-            f.Click("//a[contains(.,'Datos IE')]")
-            f.tiempo(2)
+            f.Click_oculto("//a[contains(.,'Datos IE')]")
+            f.tiempo(4)
             #f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/app-tabs-manager-plantillas/ul/li[1]/a")
             f.limpiar("//textarea[@formcontrolname='mision']")
             f.texto("//textarea[@formcontrolname='mision']", mision)
@@ -229,11 +229,11 @@ class Sisia(unittest.TestCase):
 
             # Sección personal
             f.localizar_elemento_xpath("//a[contains(.,'Personal')]")
-            f.tiempo(6)
-            f.Click("//a[contains(.,'Personal')]")
             f.tiempo(1)
+            f.Click_oculto("//a[contains(.,'Personal')]")
+            f.tiempo(4)
             f.scrolling(300)
-            f.texto("(//input[contains(@formcontrolname,'nombre')])[1]", nom)
+            f.texto("(//input[contains(@formcontrolname,'nombre')])", nom)
             f.texto("//input[@formcontrolname='paterno']", ap)
             f.texto("//input[contains(@formcontrolname,'materno')]", am)
             f.texto("(//input[contains(@formcontrolname,'rfc')])[1]", rfcc)
@@ -245,7 +245,7 @@ class Sisia(unittest.TestCase):
             f.combo_index("//select[@formcontrolname='puesto']", puesto)
             f.texto("//input[contains(@formcontrolname,'costoMensual')]", costo)
             f.combo_index("//select[contains(@formcontrolname,'ubicacionLaboral')]", laboral)
-            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])[1]")
+            f.Click("(//button[@class='btn btn-primary btn-block btn-sm'][contains(.,'Agregar')])")
             driver.implicitly_wait(8)
             f.tiempo(8)
             v = f.existe_try("//button[@class='btn btn-default'][contains(.,'Entendido')]")
@@ -300,13 +300,13 @@ class Sisia(unittest.TestCase):
 
             # instalacion
             f.localizar_elemento_xpath("//a[contains(.,'Instalaciones')]")
-            f.tiempo(6)
-            #f.Click("//a[contains(.,'Instalaciones')]")
-            f.Click("//a[contains(.,'Instalaciones')]")
             f.tiempo(1)
+            f.Click_oculto("//a[contains(.,'Instalaciones')]")
+            f.tiempo(4)
             f.scrolling(400)
             print(instalacion)
-            f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", instalacion)
+            f.tiempo(3)
+            f.combo_index("//select[contains(@formcontrolname,'tipoInstalacion')]", 1)
             f.combo_index("//select[contains(@formcontrolname,'nombreResponsable')]", 1)
             f.tiempo(1)
             f.texto("(//textarea[contains(@formcontrolname,'descripcion')])[1]", descripcion)
@@ -377,13 +377,15 @@ class Sisia(unittest.TestCase):
             f.Click("//a[@aria-expanded='false'][contains(.,'Configuraciones')]")
             #f.Click("//a[@href='/recursos-humanos-materiales']")
             f.Click("//a[@href='/sisia/recursos-humanos-materiales'][contains(.,'Recursos Humanos Y Materiales')]")
+
             #inventario
             f.localizar_elemento_xpath("//a[contains(.,'Inventario Vehicular')]")
-            f.tiempo(6)
-            f.Click("//a[contains(.,'Inventario Vehicular')]")
-            f.tiempo(2)
+            f.tiempo(1)
+            f.Click_oculto("//a[contains(.,'Inventario Vehicular')]")
+            f.tiempo(4)
             f.combo_texto("//select[@formcontrolname='anioRegistro']", ano)
-            f.texto("(//input[contains(@formcontrolname,'numInventario')])[1]", ni)
+            f.tiempo(2)
+            f.texto("(//input[contains(@formcontrolname,'numInventario')])", ni)
             f.combo_index("//select[contains(@formcontrolname,'tipoVehiculo')]", tv)
             f.texto("(//input[contains(@formcontrolname,'marca')])[1]", marcam)
             f.texto("(//input[@formcontrolname='modelo'])[1]", modelom)
@@ -451,9 +453,9 @@ class Sisia(unittest.TestCase):
 
             #f.Click("//a[contains(.,'Bien o Servicio')]")
             f.localizar_elemento_xpath("//a[contains(.,'Bien o Servicio')]")
-            f.tiempo(2)
-            f.Click("//a[contains(.,'Bien o Servicio')]")
-            f.tiempo(2)
+            f.tiempo(1)
+            f.Click_oculto("//a[contains(.,'Bien o Servicio')]")
+            f.tiempo(4)
             f.scrolling(120)
             f.combo_index("//select[contains(@formcontrolname,'anioRegistro')]", 1)
 
