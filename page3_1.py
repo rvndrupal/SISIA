@@ -36,9 +36,9 @@ import string
 
 
 
-ren = 5
+ren = 14
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 5
+casos= 14
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
 #ruta="http://10.16.3.36:8004/login"
@@ -120,8 +120,6 @@ class Sisia(unittest.TestCase):
 
 
             # DATOS IE
-            f.Click("//a[contains(.,'Personal')]")
-            f.tiempo(2)
             f.Click("//a[contains(.,'Datos IE')]")
             f.tiempo(2)
             #f.Click("/html/body/main/app-root/div/div/app-datos-ie-plantillas/div[5]/div/div/div/div/app-tabs-manager-plantillas/ul/li[1]/a")
@@ -453,7 +451,7 @@ class Sisia(unittest.TestCase):
 
             #f.Click("//a[contains(.,'Bien o Servicio')]")
             f.localizar_elemento_xpath("//a[contains(.,'Bien o Servicio')]")
-            f.tiempo(6)
+            f.tiempo(2)
             f.Click("//a[contains(.,'Bien o Servicio')]")
             f.tiempo(2)
             f.scrolling(120)
