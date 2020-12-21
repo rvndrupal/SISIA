@@ -17,7 +17,7 @@ import string
 #reporte simple python page3.py
 #pytest -v -s --alluredir=C:\SISIA\reportes  C:\SISIA\page3.py
 
-#pytest -v -s --html=report1.html --self-contained-html page3_1.py
+#pytest -v -s --html=report2.html --self-contained-html page3_2.py
 
 #pytest page3_1.py -v --junitxml="page3_1.xml"
 
@@ -36,9 +36,9 @@ import string
 
 
 
-ren = 20
+ren = 27
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 20
+casos= 27
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
 #ruta="http://10.16.3.36:8004/login"

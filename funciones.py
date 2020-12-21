@@ -23,40 +23,75 @@ class Funciones():
         self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//login.png")
         self.driver.find_element_by_xpath(self.button).click()
 
-    def texto(self, xpath, texto):
+    def texto_xpath(self, xpath, texto):
         ##r = random.randint(1, 1000)
         t = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        time.sleep(1)
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(.5)
         t = self.driver.find_element_by_xpath(xpath).clear()
         t = self.driver.find_element_by_xpath(xpath).send_keys(texto)
         print("Campo: "+str(xpath)+"--> Dato: "+str(texto))
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
         return t
-    '''
-    def Click(self, xpath):
-        #r = random.randint(1, 10000)
+
+    def texto(self, id, texto):
+        t = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(.5)
+        t = self.driver.find_element_by_id(id).clear()
+
+        t = self.driver.find_element_by_id(id).send_keys(texto)
+        print("Campo: "+str(id)+"--> Dato: "+str(texto))
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//texto" + str(r) + ".png")
+        return t
+    
+
+    def Click_xpath(self, xpath):
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(.5)
+        print("Boton nom: "+ str(xpath))
         time.sleep(1)
-        e = self.driver.find_element_by_xpath(xpath).click()
-        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
-        return e
-   
-
-    def Click(self, xpath):
+        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        time.sleep(1)
+        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
         try:
-            esp = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
-            esp = self.driver.find_element_by_xpath(xpath).click()
-            v="CLICK OK"
+            elemento = self.driver.find_element_by_xpath(xpath).click()
+            #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.RETURN)
+            print("Boton Presionado Ok: "+str(xpath))
+            return e
         except NoSuchElementException:
-            v="NO SE PUDO HACER CLICK"
-        return esp
-    '''
+            print("Boton Fallo: " + str(xpath))
 
-    def Click(self, xpath):
+    def Click(self, id):
+        e = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(e).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(.5)
+        print("Boton nom: "+ str(id))
+        time.sleep(.5)
+        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.ID, id)))
+        time.sleep(.5)
+        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.ID, id)))
+        #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
+        try:
+            elemento = self.driver.find_element_by_id(id).click()
+            #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.RETURN)
+            print("Boton Presionado Ok: "+str(id))
+            return e
+        except NoSuchElementException:
+            print("Boton Fallo: " + str(id))
+
+    '''
+    def Click_oculto(self, xpath):
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
@@ -74,11 +109,15 @@ class Funciones():
             return e
         except NoSuchElementException:
             print("Boton Fallo: " + str(xpath))
+    '''
 
+
+    #Click Oculto bueno
     def Click_oculto(self, xpath):
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
         time.sleep(.5)
         print("Boton nom: "+ str(xpath))
         time.sleep(1)
@@ -95,6 +134,7 @@ class Funciones():
             return e
         except NoSuchElementException:
             print("Boton Fallo: " + str(xpath))
+
 
 
 
@@ -117,27 +157,55 @@ class Funciones():
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
         time.sleep(2)
         e = self.driver.find_element_by_xpath(xpath)
         e = self.driver.find_element_by_xpath(xpath).click()
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Click" + str(r) + ".png")
         return e
 
-    def combo_texto(self, xpath, texto):
+    def combo_texto_xpath(self, xpath, texto):
         ct = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(ct).perform()
-        time.sleep(1.5)
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(2)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_visible_text(texto)
         return ct
 
-    def combo_index(self, xpath, index):
-        #r = random.randint(1, 1000)
+    def combo_texto(self, id, texto):
+        ct = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(ct).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(2)
+        ct = Select(self.driver.find_element_by_id(id))
+        ct.select_by_visible_text(texto)
+        return ct
+
+    def combo_index(self, id, index):
+        t = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(1)
+        ct = Select(self.driver.find_element_by_id(id))
+        ct.select_by_index(index)
+        time.sleep(2)
+        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
+        return ct
+
+    def combo_index_xpath(self, xpath, index):
+        t = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(1)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_index(index)
-        time.sleep(3)
-        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
+        time.sleep(2)
+        # self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return ct
 
     def check(self, xpath):
@@ -150,10 +218,23 @@ class Funciones():
         t = time.sleep(tiempo)
         return t
 
-    def upload(self, xpath, ruta):
-        #r = random.randint(1, 1000)
+    def upload_xpath(self, xpath, ruta):
+        t = self.driver.find_element_by_xpath(xpath)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(1)
         up = self.driver.find_element_by_xpath(xpath).send_keys(ruta)
-        #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
+
+        return up
+
+    def upload(self, id, ruta):
+        t = self.driver.find_element_by_id(id)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(t).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        time.sleep(1)
+        up = self.driver.find_element_by_id(id).send_keys(ruta)
         return up
 
     def Validar_Elemento(self, id):
@@ -196,12 +277,20 @@ class Funciones():
             val="Falso"
         return val
 
-    def existe_try(self,xpath):
+    def existe_try_xpath(self,xpath):
         try:
             self.driver.find_element_by_xpath(xpath)
             v="Existe"
         except NoSuchElementException:
             v="Falso"
+        return v
+
+    def existe_try(self, id):
+        try:
+            self.driver.find_element_by_id(id)
+            v = "Existe"
+        except NoSuchElementException:
+            v = "Falso"
         return v
 
     def existe_try_css(self, css):
