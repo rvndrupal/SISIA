@@ -28,7 +28,7 @@ class Funciones():
         t = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
         t = self.driver.find_element_by_xpath(xpath).clear()
         t = self.driver.find_element_by_xpath(xpath).send_keys(texto)
@@ -40,7 +40,7 @@ class Funciones():
         t = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
         t = self.driver.find_element_by_id(id).clear()
 
@@ -54,7 +54,7 @@ class Funciones():
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
         print("Boton nom: "+ str(xpath))
         time.sleep(1)
@@ -74,7 +74,7 @@ class Funciones():
         e = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
         print("Boton nom: "+ str(id))
         time.sleep(.5)
@@ -90,50 +90,53 @@ class Funciones():
         except NoSuchElementException:
             print("Boton Fallo: " + str(id))
 
-    '''
-    def Click_oculto(self, xpath):
+        # Click Oculto bueno
+
+    def Click_oculto_xpath(self, xpath):
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
-        print("Boton nom: "+ str(xpath))
+        print("Boton nom: " + str(xpath))
         time.sleep(1)
         elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
         time.sleep(1)
         elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
-        #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
+        # elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
         try:
-            elemento = self.driver.find_element_by_xpath(xpath).click()
-            #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.RETURN)
-            print("Boton Presionado Ok: "+str(xpath))
+            action = ActionChains(self.driver)
+            action.move_to_element(elemento).click().perform()
+            # elemento = self.driver.find_element_by_xpath(xpath).click()
+            # elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.ENTER)
+            print("Boton Presionado Ok: " + str(xpath))
             return e
         except NoSuchElementException:
             print("Boton Fallo: " + str(xpath))
-    '''
 
 
     #Click Oculto bueno
-    def Click_oculto(self, xpath):
-        e = self.driver.find_element_by_xpath(xpath)
+    def Click_oculto(self, id):
+        e = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(.5)
-        print("Boton nom: "+ str(xpath))
+        print("Boton nom: "+ str(id))
         time.sleep(1)
-        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+        elemento = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.ID, id)))
         time.sleep(1)
-        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        elemento = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.ID, id)))
         #elemento = WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located((By.XPATH, xpath)))
         try:
             action = ActionChains(self.driver)
             action.move_to_element(elemento).click().perform()
             #elemento = self.driver.find_element_by_xpath(xpath).click()
             #elemento = self.driver.find_element_by_xpath(xpath).send_Keys(Keys.ENTER)
-            print("Boton Presionado Ok: "+str(xpath))
+            print("Boton Presionado Ok: "+str(id))
             return e
         except NoSuchElementException:
-            print("Boton Fallo: " + str(xpath))
+            print("Boton Fallo: " + str(id))
 
 
 
@@ -157,7 +160,7 @@ class Funciones():
         e = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(e).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(2)
         e = self.driver.find_element_by_xpath(xpath)
         e = self.driver.find_element_by_xpath(xpath).click()
@@ -168,7 +171,7 @@ class Funciones():
         ct = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(ct).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(2)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_visible_text(texto)
@@ -178,7 +181,7 @@ class Funciones():
         ct = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(ct).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(2)
         ct = Select(self.driver.find_element_by_id(id))
         ct.select_by_visible_text(texto)
@@ -188,11 +191,11 @@ class Funciones():
         t = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
-        time.sleep(1)
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
+        time.sleep(3)
         ct = Select(self.driver.find_element_by_id(id))
         ct.select_by_index(index)
-        time.sleep(2)
+        time.sleep(3)
         #self.driver.save_screenshot("C://SELENIUM//Page_objects//IMAGENES//Check" + str(r) + ".png")
         return ct
 
@@ -200,7 +203,7 @@ class Funciones():
         t = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(1)
         ct = Select(self.driver.find_element_by_xpath(xpath))
         ct.select_by_index(index)
@@ -222,7 +225,7 @@ class Funciones():
         t = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(1)
         up = self.driver.find_element_by_xpath(xpath).send_keys(ruta)
 
@@ -232,7 +235,7 @@ class Funciones():
         t = self.driver.find_element_by_id(id)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
-        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(15) + ")")
+        self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
         time.sleep(1)
         up = self.driver.find_element_by_id(id).send_keys(ruta)
         return up

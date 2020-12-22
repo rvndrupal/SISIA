@@ -36,9 +36,9 @@ import string
 
 
 
-ren = 30
+ren = 33
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 30
+casos= 33
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
 #ruta="http://10.16.3.36:8004/login"
@@ -112,6 +112,8 @@ class Sisia(unittest.TestCase):
             pdf3 = str(fe.readData(path, "Hoja3", r, 22))
 
             # Login
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("username", user)
             f.texto("password", passw)
             f.Click("login_iniciarBtn")
@@ -120,8 +122,11 @@ class Sisia(unittest.TestCase):
 
 
             # DATOS IE
-            f.Click("tab_recursosHumanosMateriales")
-            f.tiempo(2)
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
+            f.Click_oculto("tab_recursosHumanosMateriales")
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("datosIE_mision", mision)
             f.texto("datosIE_vision", vision)
             f.texto("datosIE_fechaA", fecha2)
@@ -145,7 +150,8 @@ class Sisia(unittest.TestCase):
                 f.Click("datosIE_buttonSave")
                 f.tiempo(28)
                 f.Click("datosIE_modalOk")
-                f.tiempo(3)
+                self.driver.implicitly_wait(5)
+                f.tiempo(5)
                 f.Click("infUsuari_logout")
                 f.tiempo(1)
             print("Valor de R: " + str(r))
@@ -157,7 +163,8 @@ class Sisia(unittest.TestCase):
                 f.Click("datosIE_buttonSave")
                 f.tiempo(3)
                 f.Click("datosIE_modalOk")
-                f.tiempo(3)
+                self.driver.implicitly_wait(5)
+                f.tiempo(5)
                 f.Click("infUsuari_logout")
                 f.tiempo(1)
             print("Valor de R: " + str(r))
@@ -203,6 +210,8 @@ class Sisia(unittest.TestCase):
             curpp = curp + rt + str(ra)
 
             # Login
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("username", user)
             f.texto("password", passw)
             f.Click("login_iniciarBtn")
@@ -210,10 +219,11 @@ class Sisia(unittest.TestCase):
             f.Click("sisiaMenu_subMenu_622")
 
             # Sección personal
-            f.tiempo(1)
-            f.Click("tab_personal")
-            f.tiempo(1)
-            f.scrolling(300)
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
+            f.Click_oculto("tab_personal")
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("personal_nombre", nom)
             f.texto("personal_apellidoPat", ap)
             f.texto("personal_apellidoMat", am)
@@ -234,7 +244,8 @@ class Sisia(unittest.TestCase):
                 f.Click("personal_modalOK")
                 f.tiempo(1)
                 f.Click("personal_saveBtn")
-                f.tiempo(3)
+                self.driver.implicitly_wait(5)
+                f.tiempo(5)
                 f.Click("infUsuari_logout")
                 f.tiempo(1)
 
@@ -270,6 +281,8 @@ class Sisia(unittest.TestCase):
             estado = str(fe.readData(path, "Hoja3", r, 35))
 
             # Login
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("username", user)
             f.texto("password", passw)
             f.Click("login_iniciarBtn")
@@ -277,11 +290,11 @@ class Sisia(unittest.TestCase):
             f.Click("sisiaMenu_subMenu_622")
 
             # instalacion
-            f.Click("tab_instalaciones")
-            f.tiempo(4)
-            f.scrolling(400)
-            print(instalacion)
-            f.tiempo(3)
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
+            f.Click_oculto("tab_instalaciones")
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.combo_index("instalacionesTipoInstalacion", 1)
             f.combo_index("instalacionesNombreResponsable", 1)
             f.tiempo(1)
@@ -310,7 +323,8 @@ class Sisia(unittest.TestCase):
             f.scrolling(700)
             f.tiempo(2)
             f.Click("instalacionesGuardar")
-            f.tiempo(2)
+            self.driver.implicitly_wait(5)
+            f.tiempo(5)
             f.Click("infUsuari_logout")
             f.tiempo(1)
             if (r == casos):
@@ -346,6 +360,8 @@ class Sisia(unittest.TestCase):
             po = str(fe.readData(path, "Hoja3", r, 47))
 
             # Login
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("username", user)
             f.texto("password", passw)
             f.Click("login_iniciarBtn")
@@ -353,8 +369,11 @@ class Sisia(unittest.TestCase):
             f.Click("sisiaMenu_subMenu_622")
 
             #inventario
-            f.Click("tab_inventarioVehicular")
-            f.tiempo(2)
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
+            f.Click_oculto("tab_inventarioVehicular")
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.combo_texto("inventarioAnioRegistro", ano)
             f.tiempo(2)
             f.texto("inventarioNumInventario", ni)
@@ -380,7 +399,8 @@ class Sisia(unittest.TestCase):
             f.scrolling(200)
             f.tiempo(1)
             f.Click("inventarioGuardarRegistro")
-            f.tiempo(4)
+            self.driver.implicitly_wait(5)
+            f.tiempo(5)
             f.Click("infUsuari_logout")
             f.tiempo(1)
             if (r == casos):
@@ -413,6 +433,8 @@ class Sisia(unittest.TestCase):
             fecha4 = fecha3.strftime('%d/%m/%Y')
 
             # Login
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.texto("username", user)
             f.texto("password", passw)
             f.Click("login_iniciarBtn")
@@ -420,9 +442,11 @@ class Sisia(unittest.TestCase):
             f.Click("sisiaMenu_subMenu_622")
 
             #Click Bien y Servicio
-            f.Click("tab_bienServicio")
-            f.tiempo(2)
-            f.scrolling(120)
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
+            f.Click_oculto("tab_bienServicio")
+            self.driver.implicitly_wait(10)
+            f.tiempo(5)
             f.combo_index("bienServicio_anio", 1)
 
             f.combo_index("bienServicio_tipoBn", tv)
@@ -446,7 +470,8 @@ class Sisia(unittest.TestCase):
             f.tiempo(1)
             f.Click("bienServicio_modalOK")
             f.Click("bienServicio_saveBtn")
-            f.tiempo(2)
+            self.driver.implicitly_wait(5)
+            f.tiempo(5)
             f.Click("infUsuari_logout")
             f.tiempo(1)
             if (r == casos):
