@@ -405,7 +405,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report3.html</h1>
-    <p>Report generated on 21-Dec-2020 at 18:39:53 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
+    <p>Report generated on 12-Jan-2021 at 18:18:21 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -424,8 +424,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.8.5</td></tr></table>
     <h2>Summary</h2>
-    <p>5 tests ran in 452.31 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">5 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>5 tests ran in 414.43 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -436,11 +436,29 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">page3_3.py::Sisia::test04_inventario</td>
+          <td class="col-duration">71.74</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;page3_3.Sisia testMethod=test04_inventario&gt;<br/><br/>    def test04_inventario(self):<br/>        self.driver.implicitly_wait(30)<br/>        driver = self.driver<br/>        driver.get(ruta)<br/>        f = Funciones(driver)<br/>        fe = Funexcel(driver)<br/>        f.tiempo(5)<br/>        path = excel<br/>        hoja = &quot;Hoja3&quot;<br/>        rows = fe.getRowCount(path, hoja)<br/>        for r in range(ren, rows + 1):<br/>            user = fe.readData(path, &quot;Hoja3&quot;, r, 1)<br/>            passw = fe.readData(path, &quot;Hoja3&quot;, r, 9)<br/>            ano = str(fe.readData(path, &quot;Hoja3&quot;, r, 36))<br/>            ni = str(fe.readData(path, &quot;Hoja3&quot;, r, 37))<br/>            ni = str(fe.readData(path, &quot;Hoja3&quot;, r, 37))<br/>            tv = str(fe.readData(path, &quot;Hoja3&quot;, r, 38))<br/>            marcam = str(fe.readData(path, &quot;Hoja3&quot;, r, 39))<br/>            modelom = str(fe.readData(path, &quot;Hoja3&quot;, r, 40))<br/>            placam = str(fe.readData(path, &quot;Hoja3&quot;, r, 41))<br/>            ns = str(fe.readData(path, &quot;Hoja3&quot;, r, 42))<br/>            cil = str(fe.readData(path, &quot;Hoja3&quot;, r, 43))<br/>            vf = str(fe.readData(path, &quot;Hoja3&quot;, r, 44))<br/>            nf = str(fe.readData(path, &quot;Hoja3&quot;, r, 45))<br/>            kil = str(fe.readData(path, &quot;Hoja3&quot;, r, 46))<br/>            po = str(fe.readData(path, &quot;Hoja3&quot;, r, 47))<br/>    <br/>            # Login<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.texto(&quot;username&quot;, user)<br/>            f.texto(&quot;password&quot;, passw)<br/>            f.Click(&quot;login_iniciarBtn&quot;)<br/>            f.Click(&quot;sisiaMenu_menu_621&quot;)<br/>            f.Click(&quot;sisiaMenu_subMenu_622&quot;)<br/>    <br/>            #inventario<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.Click_oculto(&quot;tab_inventarioVehicular&quot;)<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.combo_texto(&quot;inventarioAnioRegistro&quot;, ano)<br/>            f.tiempo(2)<br/>            f.texto(&quot;inventarioNumInventario&quot;, ni)<br/>            f.combo_index(&quot;inventarioTipoVehiculo&quot;, tv)<br/>            f.texto(&quot;inventarioMarca&quot;, marcam)<br/>            f.texto(&quot;inventarioModelo&quot;, modelom)<br/>            f.texto(&quot;inventarioPlaca&quot;, placam)<br/>            f.scrolling(350)<br/>            f.texto(&quot;inventarioNumSerie&quot;, ns)<br/>            f.texto(&quot;inventarioNumCilindros&quot;, cil)<br/>            f.texto(&quot;inventarioValorFactura&quot;, vf)<br/>            f.texto(&quot;inventarioNumFactura&quot;, nf)<br/>            f.combo_index(&quot;inventarioCondicionVehiculo&quot;, tv)<br/>            f.combo_index(&quot;inventarioResguardante&quot;, 1)<br/>            f.texto(&quot;inventarioKilometraje&quot;, kil)<br/>&gt;           f.combo_index(&quot;inventarioProyectoOrigen&quot;, po)<br/><br/>page3_3.py:393: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>funciones.py:197: in combo_index<br/>    ct.select_by_index(index)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.select.Select object at 0x000001B5D0B19D00&gt;, index = &#x27;6&#x27;<br/><br/>    def select_by_index(self, index):<br/>        &quot;&quot;&quot;Select the option at the given index. This is done by examing the &quot;index&quot; attribute of an<br/>           element, and not merely by counting.<br/>    <br/>           :Args:<br/>            - index - The option at this index will be selected<br/>    <br/>           throws NoSuchElementException If there is no option with specisied index in SELECT<br/>           &quot;&quot;&quot;<br/>        match = str(index)<br/>        for opt in self.options:<br/>            if opt.get_attribute(&quot;index&quot;) == match:<br/>                self._setSelected(opt)<br/>                return<br/>&gt;       raise NoSuchElementException(&quot;Could not locate element with index %d&quot; % index)<br/><span class="error">E       TypeError: %d format: a number is required, not str</span><br/><br/>c:\users\rodrigo.villanueva.c\anaconda3\lib\site-packages\selenium\webdriver\support\select.py:103: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">page3_3.py::Sisia::test05_bien</td>
+          <td class="col-duration">86.51</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;page3_3.Sisia testMethod=test05_bien&gt;<br/><br/>    def test05_bien(self):<br/>        self.driver.implicitly_wait(30)<br/>        driver = self.driver<br/>        driver.get(ruta)<br/>        f = Funciones(driver)<br/>        fe = Funexcel(driver)<br/>        f.tiempo(5)<br/>        path = excel<br/>        hoja = &quot;Hoja3&quot;<br/>        rows = fe.getRowCount(path, hoja)<br/>        for r in range(ren, rows + 1):<br/>            user = fe.readData(path, &quot;Hoja3&quot;, r, 1)<br/>            passw = fe.readData(path, &quot;Hoja3&quot;, r, 9)<br/>            tv = str(fe.readData(path, &quot;Hoja3&quot;, r, 38))<br/>            mision = fe.readData(path, &quot;Hoja3&quot;, r, 10)<br/>            marcam = str(fe.readData(path, &quot;Hoja3&quot;, r, 39))<br/>            nf = str(fe.readData(path, &quot;Hoja3&quot;, r, 45))<br/>            po = str(fe.readData(path, &quot;Hoja3&quot;, r, 47))<br/>            modelom = str(fe.readData(path, &quot;Hoja3&quot;, r, 40))<br/>            ns = str(fe.readData(path, &quot;Hoja3&quot;, r, 42))<br/>            vf = str(fe.readData(path, &quot;Hoja3&quot;, r, 44))<br/>            fecha3 = datetime.now()<br/>            fecha4 = fecha3.strftime(&#x27;%d/%m/%Y&#x27;)<br/>    <br/>            # Login<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.texto(&quot;username&quot;, user)<br/>            f.texto(&quot;password&quot;, passw)<br/>            f.Click(&quot;login_iniciarBtn&quot;)<br/>            f.Click(&quot;sisiaMenu_menu_621&quot;)<br/>            f.Click(&quot;sisiaMenu_subMenu_622&quot;)<br/>    <br/>            #Click Bien y Servicio<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.Click_oculto(&quot;tab_bienServicio&quot;)<br/>            self.driver.implicitly_wait(10)<br/>            f.tiempo(5)<br/>            f.combo_index(&quot;bienServicio_anio&quot;, 1)<br/>    <br/>            f.combo_index(&quot;bienServicio_tipoBn&quot;, tv)<br/>            f.tiempo(2)<br/>            f.combo_index(&quot;bienServicio_concepto&quot;, po)<br/>            f.texto(&quot;bienServicio_desc&quot;, mision)<br/>            f.texto(&quot;bienServicio_numInv&quot;, nf)<br/>            f.texto(&quot;bienServicio_marca&quot;, marcam)<br/>            f.texto(&quot;bienServicio_mod&quot;, modelom)<br/>            f.combo_index(&quot;bienServicio_estadoBn&quot;, tv)<br/>            f.texto(&quot;bienServicio_numSer&quot;, ns)<br/>            f.texto(&quot;bienServicio_numFact&quot;, vf)<br/>            f.texto(&quot;bienServicio_valFact&quot;, &quot;30000&quot;)<br/>            f.combo_index(&quot;bienServicio_nomRes&quot;, 1)<br/>            f.combo_index(&quot;bienServicio_ubiBn&quot;, po)<br/>&gt;           f.combo_index(&quot;bienServicio_proOri&quot;, po)<br/><br/>page3_3.py:466: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>funciones.py:197: in combo_index<br/>    ct.select_by_index(index)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.select.Select object at 0x000001B5CFE5C910&gt;, index = &#x27;6&#x27;<br/><br/>    def select_by_index(self, index):<br/>        &quot;&quot;&quot;Select the option at the given index. This is done by examing the &quot;index&quot; attribute of an<br/>           element, and not merely by counting.<br/>    <br/>           :Args:<br/>            - index - The option at this index will be selected<br/>    <br/>           throws NoSuchElementException If there is no option with specisied index in SELECT<br/>           &quot;&quot;&quot;<br/>        match = str(index)<br/>        for opt in self.options:<br/>            if opt.get_attribute(&quot;index&quot;) == match:<br/>                self._setSelected(opt)<br/>                return<br/>&gt;       raise NoSuchElementException(&quot;Could not locate element with index %d&quot; % index)<br/><span class="error">E       TypeError: %d format: a number is required, not str</span><br/><br/>c:\users\rodrigo.villanueva.c\anaconda3\lib\site-packages\selenium\webdriver\support\select.py:103: TypeError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">page3_3.py::Sisia::test01_datos</td>
-          <td class="col-duration">51.38</td>
+          <td class="col-duration">63.90</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -449,7 +467,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">page3_3.py::Sisia::test02_persona</td>
-          <td class="col-duration">76.61</td>
+          <td class="col-duration">76.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -458,25 +476,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">page3_3.py::Sisia::test03_instalacion</td>
-          <td class="col-duration">106.85</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">page3_3.py::Sisia::test04_inventario</td>
-          <td class="col-duration">95.84</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">page3_3.py::Sisia::test05_bien</td>
-          <td class="col-duration">110.92</td>
+          <td class="col-duration">105.15</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

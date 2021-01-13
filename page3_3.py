@@ -36,14 +36,14 @@ import string
 
 
 
-ren = 35
+ren = 37
 excel="C://SISIA//Documentacion//respaldo_ok.xlsx"
-casos= 35
+casos= 37
 #ruta="https://prod.senasica.gob.mx/sisia/login"
 
-#ruta="http://10.16.3.36:8004/login"
+ruta="http://10.16.3.36:8004/login"
 
-ruta="http://10.16.3.29:8004/login"
+#ruta="http://10.16.3.29:8004/login"
 #nueva con los id
 
 #Produccion.
@@ -57,6 +57,8 @@ class Sisia(unittest.TestCase):
     def setUpClass(cls):
 
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
+        #cls.driver = webdriver.Firefox()
+        #cls.driver=webdriver.Ie()
         cls.driver.maximize_window()
         driver = cls.driver
         f = Funciones(driver)
@@ -72,8 +74,6 @@ class Sisia(unittest.TestCase):
         f = Funciones(driver)
         fe = Funexcel(driver)
         f.tiempo(2)
-        #driver.get("http://10.16.3.29:8004/login")
-        # driver.get("http://10.16.3.36:8004/login")
         driver.get(ruta)
 
         path = excel
@@ -161,7 +161,7 @@ class Sisia(unittest.TestCase):
             elif (pdf == "Falso"):
                 f.tiempo(1)
                 f.Click("datosIE_buttonSave")
-                f.tiempo(3)
+                f.tiempo(4)
                 f.Click("datosIE_modalOk")
                 self.driver.implicitly_wait(5)
                 f.tiempo(5)
@@ -319,7 +319,7 @@ class Sisia(unittest.TestCase):
             f.Click("instalacionesAgregar")
             f.tiempo(2)
             #falta id
-            f.Click_xpath("//button[@class='btn btn-default'][contains(.,'Entendido')]")
+            f.Click("instalaciones_modalEnt")
             f.scrolling(700)
             f.tiempo(2)
             f.Click("instalacionesGuardar")
@@ -390,12 +390,14 @@ class Sisia(unittest.TestCase):
             f.combo_index("inventarioResguardante", 1)
             f.texto("inventarioKilometraje", kil)
             f.combo_index("inventarioProyectoOrigen", po)
+            #nuevo
+            f.texto("inventarioNombreProyecto","Demo proyecto")
             f.Click("inventarioTipoRecurso")
             #f.scrolling(550)
             f.tiempo(2)
             f.Click("inventarioAgregar")
             #FAlTA ID
-            f.Click_xpath("//button[@class='btn btn-default'][contains(.,'Entendido')]")
+            f.Click("inventario_modalEnt")
             f.scrolling(200)
             f.tiempo(1)
             f.Click("inventarioGuardarRegistro")
@@ -463,6 +465,7 @@ class Sisia(unittest.TestCase):
             f.combo_index("bienServicio_nomRes", 1)
             f.combo_index("bienServicio_ubiBn", po)
             f.combo_index("bienServicio_proOri", po)
+            f.texto("bienServicio_espPro","Demo del proyecto")
             f.texto("bienServicio_fechaAdq", fecha4)
             f.Click("bienServicio_tipRec_2")
             f.tiempo(2)

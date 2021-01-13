@@ -200,7 +200,7 @@ class Funciones():
         return ct
 
     def combo_index_xpath(self, xpath, index):
-        t = self.driver.find_element_by_id(id)
+        t = self.driver.find_element_by_xpath(xpath)
         actions = ActionChains(self.driver)
         actions.move_to_element(t).perform()
         self.driver.execute_script("window.scrollTo(0, window.scrollY + " + str(25) + ")")
